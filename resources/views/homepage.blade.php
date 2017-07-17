@@ -8,7 +8,7 @@
 
 
  <!--=== Flex Slider Start ===-->
-    {{-- @include('layouts.partials.flex') --}}
+     @include('layouts.partials.flex')
   <!--=== Flex Slider End ===-->
 
   <!--=== Who We Are Start ===-->
@@ -18,7 +18,7 @@
 
   <!--=== Portfolio Start ===-->
 
-    {{-- @include('layouts.partials.portfolio') --}}
+     @include('layouts.partials.portfolio')
   <!--=== Portfolio End ===-->
 
   <!--=== Counter Start ===-->

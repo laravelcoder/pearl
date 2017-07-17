@@ -10,6 +10,9 @@
             <li data-group="print">Print</li>
           </ul>
           <ul id="portfolio-grid" class="three-column hover-two">
+
+            @foreach($designs as $design)
+
             <li class="portfolio-item wow fadeIn wow fadeIn" data-wow-delay="0.1s" data-groups='["all", "print", "branding"]'>
               <div class="portfolio gallery-image-hover">
                 <div class="dark-overlay"></div>
@@ -25,6 +28,11 @@
                   </ul>
                 </div>
               </div>
+
+            @endforeach
+
+
+
               <!--=== /.portfolio ===-->
             </li>
             <li class="portfolio-item wow fadeIn" data-wow-delay="0.2s" data-groups='["all", "branding", "web"]'>

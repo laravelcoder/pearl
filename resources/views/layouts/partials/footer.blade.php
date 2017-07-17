@@ -39,7 +39,7 @@
               <h5 class="widget-title">Contact Us</h5>
               <ul>
                 <li> <i class="mdi mdi-map-marker"></i> <a href="#">6564 S 5095 W. West Jordan 84081</a> </li>
-                <li> <i class="mdi mdi-cellphone"></i> <a href="#">(801) 898-6269</a> </li>
+                <li> <i class="mdi mdi-cellphone"></i> <a href="#">(+1 801) 898-6269</a> </li>
                 <li> <i class="mdi mdi-email"></i> <a href="mailto:contact@orderpearlessence.com">contact@orderpearlessence.com</a> </li>
                 <li> <i class="mdi mdi-web"></i> <a href="#">www.orderpearlessence.com</a> </li>
               </ul>

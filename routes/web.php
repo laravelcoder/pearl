@@ -40,9 +40,10 @@ Route::get('/r', function () {
 });
 
 
-Route::get('/', ['as'=> 'homepage', 'uses' => 'HomeController@index']);
-
-
+    Route::get('/', ['as'=> 'homepage', 'uses' => 'HomeController@index']);
+    Route::get('/about', ['as'=> 'about', 'uses' => 'HomeController@about']);
+    Route::get('/contact', ['as'=> 'contact', 'uses' => 'HomeController@contact']);
+    Route::get('/terms', ['as'=> 'terms', 'uses' => 'HomeController@terms']);
 
     Auth::routes();
 

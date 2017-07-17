@@ -8,6 +8,8 @@
 <link rel="shortcut icon" href="assets/images/favicon.ico">
 <link rel="stylesheet" href="assets/css/master.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
+
+  @yield('css')
 </head>
 <body>
 
@@ -96,8 +98,11 @@
 
 </div>
 <!--=== Wrapper End ===-->
-
+@yield('scripts')
 <!--=== Javascript Plugins ===-->
+
+
+
 <script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
 <script src="{!! asset('assets/js/validator.js') !!}"></script>
 <script src="{!! asset('assets/js/plugins.js') !!}"></script>
