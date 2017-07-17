@@ -136,15 +136,20 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse App\\Http\\Requests\\CreateLawyerRequest;\nuse App\\Http\\Requests\\UpdateLawyerRequest;\nuse App\\Repositories\\LawyerRepository;\nuse App\\Http\\Controllers\\AppBaseController;\nuse Illuminate\\Http\\Request;\nuse Flash;\nuse File;\nuse Prettus\\Repository\\Criteria\\RequestCriteria;\nuse Response;\n\nclass LawyerController extends AppBaseController {\n\n    /** @var  LawyerRepository */\n    private $lawyerRepository;\n\n    public function __construct(LawyerRepository $lawyerRepo) {\n        $this->lawyerRepository = $lawyerRepo;\n    }\n\n    /**\n     * Display a listing of the Lawyer.\n     *\n     * @param Request $request\n     * @return Response\n     */\n    public function index(Request $request) {\n        $this->lawyerRepository->pushCriteria(new RequestCriteria($request));\n        $lawyers = $this->lawyerRepository->paginate(20);\n\n        return view('lawyers.index')\n                        ->with('lawyers', $lawyers);\n    }\n\n    /**\n     * Show the form for creating a new Lawyer.\n     *\n     * @return Response\n     */\n    public function create() {\n        return view('lawyers.create');\n    }\n\n    /**\n     * Store a newly created Lawyer in storage.\n     *\n     * @param CreateLawyerRequest $request\n     *\n     * @return Response\n     */\n    public function store(CreateLawyerRequest $request) {\n        $input = $request->all();\n\n        if ($request->image) {\n            $photoName = time() . '.' . $request->image->getClientOriginalExtension();\n            $request->image->move(public_path('images\\\\lawyers'), $photoName);\n\n            $input['image'] = $photoName;\n        }\n\n        if ($request->banner) {\n            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();\n            $request->banner->move(public_path('images\\\\lawyers\\\\banners'), $photoName);\n\n            $input['banner'] = $photoName;\n        }\n\n        $lawyer = $this->lawyerRepository->create($input);\n\n\n\n\n\n        Flash::success('Lawyer saved successfully.');\n\n        return redirect(route('lawyers.index'));\n    }\n\n    /**\n     * Display the specified Lawyer.\n     *\n     * @param  int $id\n     *\n     * @return Response\n     */\n    public function show($id) {\n        $lawyer = $this->lawyerRepository->findWithoutFail($id);\n\n        if (empty($lawyer)) {\n            Flash::error('Lawyer not found');\n\n            return redirect(route('lawyers.index'));\n        }\n\n        return view('lawyers.show')->with('lawyer', $lawyer);\n    }\n\n    /**\n     * Show the form for editing the specified Lawyer.\n     *\n     * @param  int $id\n     *\n     * @return Response\n     */\n    public function edit($id) {\n        $lawyer = $this->lawyerRepository->findWithoutFail($id);\n\n        if (empty($lawyer)) {\n            Flash::error('Lawyer not found');\n\n            return redirect(route('lawyers.index'));\n        }\n\n\n\n        return view('lawyers.edit')->with('lawyer', $lawyer);\n    }\n\n    /**\n     * Update the specified Lawyer in storage.\n     *\n     * @param  int              $id\n     * @param UpdateLawyerRequest $request\n     *\n     * @return Response\n     */\n    public function update($id, UpdateLawyerRequest $request) {\n \n        $lawyer = $this->lawyerRepository->findWithoutFail($id);\n\n        if (empty($lawyer)) {\n            Flash::error('Lawyer not found');\n\n            return redirect(route('lawyers.index'));\n        }\n        $data = $request->all();\n        // $lawyer\n        if ($request->image) {\n            $photoName = time() . '.' . $request->image->getClientOriginalExtension();\n            $request->image->move(public_path('images\\\\lawyers'), $photoName);\n\n            $data['image'] = $photoName;\n            \n        } else\n\n            unset($data['image']);\n\n        if ($request->banner) {\n            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();\n            $request->banner->move(public_path('images\\\\lawyers'), $photoName);\n\n            $data['banner'] = $photoName;\n        } else\n            unset($data['banner']);\n\n        $lawyer = $this->lawyerRepository->update($data, $id);\n\n\n\n//        /dd($request->all());\n\n        Flash::success('Lawyer updated successfully.');\n\n        return redirect(route('lawyers.index'));\n    }\n\n    /**\n     * Remove the specified Lawyer from storage.\n     *\n     * @param  int $id\n     *\n     * @return Response\n     */\n    public function destroy($id) {\n        $lawyer = $this->lawyerRepository->findWithoutFail($id);\n\n        if (empty($lawyer)) {\n            Flash::error('Lawyer not found');\n\n            return redirect(route('lawyers.index'));\n        }\n\n        $this->lawyerRepository->delete($id);\n\n        Flash::success('Lawyer deleted successfully.');\n\n        return redirect(route('lawyers.index'));\n    }\n\n}\n",
 			"file": "/D/Clients/adams/app/Http/Controllers/LawyerController.php",
-			"file_size": 4944,
-			"file_write_time": 131447242021133498,
 			"settings":
 			{
-				"buffer_size": 4766,
+				"buffer_size": 4750,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Clients/adams/app/Http/Middleware/RedirectIfAuthenticated.php",
+			"settings":
+			{
+				"buffer_size": 523,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -565,14 +570,15 @@
 		"/D/Clients/adams",
 		"/D/Clients/adams/app",
 		"/D/Clients/adams/app/Http",
-		"/D/Clients/adams/app/Http/Controllers",
-		"/D/Clients/adams/app/Http/Middleware",
+		"/D/Clients/adams/app/Models",
 		"/D/Clients/adams/resources",
 		"/D/Clients/adams/resources/views",
 		"/D/Clients/adams/routes"
 	],
 	"file_history":
 	[
+		"/D/Clients/pearl/woocommerce-ddl.php",
+		"/D/Clients/pearl/app/Http/Controllers/DesignController.php",
 		"/C/Users/Phillip/AppData/Local/Temp/fz3temp-2/functions.php",
 		"/D/Desktop-2016/autotrack-master/autotrack.js.map",
 		"/C/Users/Phillip/AppData/Local/Temp/fz3temp-2/index.php",
@@ -698,9 +704,7 @@
 		"/D/Clients/adams/app/Models/Service.php",
 		"/D/Clients/adams/resources/views/layouts/partials/footer.blade.php",
 		"/D/Clients/adams/app/Repositories/ServiceRepository.php",
-		"/E/A_LOCAL/aaa/backend.clip/vendor/tsawler/laravel-filemanager/src/controllers/UploadController.php",
-		"/E/A_LOCAL/aaa/secure/vendor/developernaren/laravel-crud/src/DeveloperNaren/Crud/Writers/Controller.php",
-		"/D/Clients/adams/resources/views/layouts/frontpage/slider.blade.php"
+		"/E/A_LOCAL/aaa/backend.clip/vendor/tsawler/laravel-filemanager/src/controllers/UploadController.php"
 	],
 	"find":
 	{
@@ -997,7 +1001,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1013,8 +1017,8 @@
 						"selection":
 						[
 							[
-								3807,
-								3807
+								1737,
+								1638
 							]
 						],
 						"settings":
@@ -1026,10 +1030,10 @@
 							"syntax_mgr_loaded": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1482.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1059,10 +1063,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 228.0,
+						"translation.y": 38.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1092,7 +1096,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1101,15 +1105,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4766,
+						"buffer_size": 4750,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3433,
-								3728
+								1826,
+								1826
 							]
 						],
 						"settings":
@@ -1122,7 +1126,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2394.0,
+						"translation.y": 912.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1130,6 +1134,38 @@
 				},
 				{
 					"buffer": 5,
+					"file": "/D/Clients/adams/app/Http/Middleware/RedirectIfAuthenticated.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/php-grammar/PHP.sublime-syntax",
+							"syntax_mgr_loaded": true,
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "/C/Users/Phillip/AppData/Local/Temp/fz3temp-2/footer.php",
 					"semi_transient": false,
 					"settings":
@@ -1141,8 +1177,8 @@
 						"selection":
 						[
 							[
-								2175,
-								2182
+								2206,
+								2156
 							]
 						],
 						"settings":
@@ -1160,7 +1196,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "/C/Users/Phillip/AppData/Local/Temp/fz3temp-2/header.php",
 					"semi_transient": false,
 					"settings":
@@ -1185,11 +1221,11 @@
 						"translation.y": 2736.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "/C/Users/Phillip/AppData/Local/Temp/fz3temp-2/thankyou.php",
 					"semi_transient": false,
 					"settings":
@@ -1216,11 +1252,11 @@
 						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "/C/Users/Phillip/Dropbox/Notes/pvp.note",
 					"semi_transient": false,
 					"settings":
@@ -1248,11 +1284,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "/D/Clients/adams/resources/views/team/show.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -1281,11 +1317,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "/D/Clients/adams/resources/views/services/services.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -1313,11 +1349,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "/E/A_LOCAL/aaa/backend/app/Http/Controllers/ArticleController.php",
 					"semi_transient": false,
 					"settings":
@@ -1346,7 +1382,7 @@
 						"translation.y": 722.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
