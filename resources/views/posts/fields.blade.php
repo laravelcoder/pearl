@@ -88,13 +88,14 @@
 <!-- Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('image', 'Image:') !!}
-    {!! Form::text('image', null, ['class' => 'form-control']) !!}
+    
+    {!! Form::file('image[]', ['class' => 'form-control','multiple']) !!}
 </div>
 
 <!-- Banner Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::text('banner', null, ['class' => 'form-control']) !!}
+    {!! Form::file('banner[]', ['class' => 'form-control','multiple']) !!}
 </div>
 
 <!-- View Count Field -->
