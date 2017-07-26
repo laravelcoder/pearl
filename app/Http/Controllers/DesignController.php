@@ -12,13 +12,12 @@ use File;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class DesignController extends AppBaseController
-{
+class DesignController extends AppBaseController {
+
     /** @var  DesignRepository */
     private $designRepository;
 
-    public function __construct(DesignRepository $designRepo)
-    {
+    public function __construct(DesignRepository $designRepo) {
         $this->designRepository = $designRepo;
     }
 
@@ -28,13 +27,12 @@ class DesignController extends AppBaseController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $this->designRepository->pushCriteria(new RequestCriteria($request));
         $designs = $this->designRepository->all();
 
         return view('designs.index')
-            ->with('designs', $designs);
+                        ->with('designs', $designs);
     }
 
     /**
@@ -42,8 +40,7 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
-    {
+    public function create() {
         return view('designs.create');
     }
 
@@ -54,19 +51,21 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateDesignRequest $request)
-    {
+    public function store(CreateDesignRequest $request) {
         $data = $request->all();
 
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\designs'), $photoName);
-
-            $data['image'] = $photoName;
-
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\designs'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['image'] = serialize($images);
         } else
-
             unset($data['image']);
+
+
 
         $design = $this->designRepository->create($data);
 
@@ -82,8 +81,7 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $design = $this->designRepository->findWithoutFail($id);
 
         if (empty($design)) {
@@ -102,8 +100,7 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $design = $this->designRepository->findWithoutFail($id);
 
         if (empty($design)) {
@@ -123,8 +120,7 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateDesignRequest $request)
-    {
+    public function update($id, UpdateDesignRequest $request) {
         $design = $this->designRepository->findWithoutFail($id);
 
         if (empty($design)) {
@@ -135,15 +131,17 @@ class DesignController extends AppBaseController
 
         $data = $request->all();
 
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\designs'), $photoName);
-
-            $data['image'] = $photoName;
-
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\designs'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['image'] = serialize($images);
         } else
-
             unset($data['image']);
+
 
         $design = $this->designRepository->update($data, $id);
 
@@ -159,8 +157,7 @@ class DesignController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $design = $this->designRepository->findWithoutFail($id);
 
         if (empty($design)) {
@@ -175,4 +172,5 @@ class DesignController extends AppBaseController
 
         return redirect(route('designs.index'));
     }
+
 }

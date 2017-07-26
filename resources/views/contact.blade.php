@@ -24,7 +24,7 @@
         <div class="col-about-left col-md-6 text-left">
           <h2 class="merriweather-font">Get in Touch</h2>
           <h4 class="text-uppercase source-font">Find your pearls design</h4>
-          <form name="contact-form" id="contact-form" action="php/contact.php" method="POST" class="mt-50">
+          <form name="contact-form" id="contact-form" onsubmit="return sendrequest()" class="mt-50">
             <div class="messages"></div>
             <div class="form-group">
               <label class="sr-only" for="name">Name</label>
@@ -118,6 +118,25 @@
 @section('scripts')
 <!--=== Javascript Plugins ======-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7LYRzyivt-k-4wMEENhy-cMR_KMO_8A"></script>
+        <script>
 
+function sendrequest() {
+    // do the extra stuff here
+    $('#requestsent').hide();
+    $.ajax({
+        type: "POST",
+        url: "contact/sendrequest",
+        data: $("#contact-form").serialize() + "&_token={{ csrf_token() }}",
+        success: function (data) {
+            $('#contact-form')[0].reset()
+            $('#contact-form').prepend('<div id="requestsent" class="alert alert-success">'+data+'</div>');
+            setTimeout(function () {
+                $('#requestsent').hide();
+            }, 30000);
+        }
+    });
+    return false;
+}
+        </script>
 <!--=== Javascript Plugins End ======-->
 @endsection

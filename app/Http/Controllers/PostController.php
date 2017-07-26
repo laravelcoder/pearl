@@ -58,19 +58,27 @@ class PostController extends AppBaseController
     {
         $input = $request->all();
 
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\post'), $photoName);
-
-            $input['image'] = $photoName;
-        }
-
-        if ($request->banner) {
-            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();
-            $request->banner->move(public_path('assets\\images\\post\\banners'), $photoName);
-
-            $input['banner'] = $photoName;
-        }
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\post'), $photoName);
+                $images[] = $photoName;
+            }
+            $input['image'] = serialize($images);
+        } else
+            unset($input['image']);
+      
+        $images = array();
+        if ($files = $request->file('banner')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\banners'), $photoName);
+                $images[] = $photoName;
+            }
+            $input['banner'] = serialize($images);
+        } else
+            unset($input['banner']);
 
         $post = $this->postRepository->create($input);
 
@@ -139,23 +147,30 @@ class PostController extends AppBaseController
 
         $data = $request->all();
         // $lawyer
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\post'), $photoName);
-
-            $data['image'] = $photoName;
-
+        
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\post'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['image'] = serialize($images);
         } else
-
             unset($data['image']);
-
-        if ($request->banner) {
-            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();
-            $request->banner->move(public_path('assets\\images\\post\\banners'), $photoName);
-
-            $data['banner'] = $photoName;
+      
+        $images = array();
+        if ($files = $request->file('banner')) {
+            foreach ($files as $file) {
+                $photoName = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('assets\\images\\banners'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['banner'] = serialize($images);
         } else
             unset($data['banner']);
+
+       
 
 
         $post = $this->postRepository->update($data, $id);
