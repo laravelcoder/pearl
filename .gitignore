@@ -11,4 +11,5 @@ npm-debug.log
 .env
 /.ignore
 *.psd
+/*.sublime-workspace
 resources/views/layouts/partials/adams.sublime-workspace
