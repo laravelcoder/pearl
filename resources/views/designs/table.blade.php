@@ -1,10 +1,9 @@
 <table class="table table-responsive" id="designs-table">
     <thead>
+        <th>Id</th>
+        <th>Published</th>
         <th>Name</th>
-        <th>Slug</th>
         <th>Image</th>
-        <th>Short Details</th>
-        <th>Details</th>
         <th>Price</th>
         <th>Availability</th>
         <th colspan="3">Action</th>
@@ -12,11 +11,10 @@
     <tbody>
     @foreach($designs as $design)
         <tr>
+            <td>{!! $design->id !!}</td>
+            <td>{!! $design->published !!}</td>
             <td>{!! $design->name !!}</td>
-            <td>{!! $design->slug !!}</td>
             <td>{!! $design->image !!}</td>
-            <td>{!! $design->short_details !!}</td>
-            <td>{!! $design->details !!}</td>
             <td>{!! $design->price !!}</td>
             <td>{!! $design->availability !!}</td>
             <td>

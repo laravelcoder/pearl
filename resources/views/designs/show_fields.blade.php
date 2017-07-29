@@ -4,6 +4,12 @@
     <p>{!! $design->id !!}</p>
 </div>
 
+<!-- Published Field -->
+<div class="form-group">
+    {!! Form::label('published', 'Published:') !!}
+    <p>{!! $design->published !!}</p>
+</div>
+
 <!-- Name Field -->
 <div class="form-group">
     {!! Form::label('name', 'Name:') !!}

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Pearl Essence Home Parties</title>
-<link rel="shortcut icon" href="assets/images/favicon.ico">
-<link rel="stylesheet" href="assets/css/master.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="shortcut icon" href="{!! asset('assets/images/favicon.ico') !!}">
+<link rel="stylesheet" href="{!! asset('assets/css/master.css') !!}">
+<link rel="stylesheet" href="{!! asset('assets/css/responsive.css') !!}">
 
   @yield('css')
 </head>

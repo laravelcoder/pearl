@@ -5,18 +5,40 @@
 </div>
 
 <!-- Slug Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('slug', 'Slug:') !!}
     {!! Form::text('slug', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Image Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('image', 'Image:') !!}
-    {!! Form::file('image[]',['multiple']) !!}
-</div>
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('image', 'Image:') !!}--}}
+    {{--{!! Form::file('image') !!}--}}
+{{--</div>--}}
 <div class="clearfix"></div>
 
+
+<hr>
+<div class="col-sm-12">
+    <br/> <br/> <br/>
+    @if(!empty($design->image))
+        <h3>Current Image</h3>
+        <span class="fileupload-preview"> <img itemprop="image" src="{!! url('assets/images/designs/hp/'.$design->image) !!}" class="img-responsive" alt="Image"> </span>
+    @endif
+    <div class="form-group">
+        <div class="col-md-8">
+            {!! Form::label('image', 'Image') !!}
+            {!! Form::file('image',['class' => 'mulit file input-preview']) !!}
+            {{--<input id="image" name="image" type="file" class="mulit file input-preview">--}}
+        </div>
+    </div>
+</div>
+
+{{--<br style="clear:both" />--}}
+
+
+<div class="clearfix"></div>
+<hr>
 <!-- Short Details Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('short_details', 'Short Details:') !!}
@@ -38,7 +60,7 @@
 <!-- Availability Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('availability', 'Availability:') !!}
-    {!! Form::text('availability', null, ['class' => 'form-control']) !!}
+    {!! Form::select('availability', ['Available' => 'Available', 'OnBackorder' => 'OnBackorder', 'SoldOut' => 'SoldOut', 'Discontinued' => 'Discontinued'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
