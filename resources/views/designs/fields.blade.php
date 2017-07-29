@@ -19,20 +19,27 @@
 
 
 <hr>
-<div class="col-sm-12">
-    <br/> <br/> <br/>
-    @if(!empty($design->image))
-        <h3>Current Image</h3>
-        <span class="fileupload-preview"> <img itemprop="image" src="{!! url('assets/images/designs/hp/'.$design->image) !!}" class="img-responsive" alt="Image"> </span>
-    @endif
-    <div class="form-group">
-        <div class="col-md-8">
-            {!! Form::label('image', 'Image') !!}
-            {!! Form::file('image',['class' => 'mulit file input-preview']) !!}
-            {{--<input id="image" name="image" type="file" class="mulit file input-preview">--}}
+<div class="row">
+    <div class=" col-sm-12">
+        @if(!empty($design->image))
+            <h3>Current Image</h3>
+            <span class="fileupload-preview"> <img itemprop="image" src="{!! url('assets/images/designs/hp/'.$design->image) !!}" class="img-responsive" alt="Image"> </span>
+        @endif
+        <div class="form-group">
+            <div class="col-md-8">
+                {!! Form::label('image', 'Image') !!}
+                {!! Form::file('image',['class' => 'mulit file input-preview']) !!}
+                {{--<input id="image" name="image" type="file" class="mulit file input-preview">--}}
+            </div>
         </div>
     </div>
 </div>
+
+    <div class="col-md-6">
+
+        <button id="add_album_image" class="btn btn-danger" type="button"><i class="fa fa-plus"></i> Add Photo</button>
+
+    </div>
 
 {{--<br style="clear:both" />--}}
 

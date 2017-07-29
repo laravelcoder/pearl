@@ -2,7 +2,7 @@
 	$.fn.repeatable_fields = function(custom_settings) {
 		var default_settings = {
 			wrapper: '.wrapper',
-			container: '.container',
+			container: '.content-wrapper',
 			row: '.row',
 			add: '.add',
 			remove: '.remove',
@@ -14,8 +14,8 @@
 			before_remove: null,
 			after_remove: null,
 			sortable_options: null,
-			row_count_placeholder: '{row-count-placeholder}',
-		}
+			row_count_placeholder: '{row-count-placeholder}'
+		};
 
 		var settings = $.extend({}, default_settings, custom_settings);
 
