@@ -26,3 +26,23 @@
     <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
 </li>
 
+<li class="{{ Request::is('designs*') ? 'active' : '' }}">
+    <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
+</li>
+
+<li class="{{ Request::is('designs*') ? 'active' : '' }}">
+    <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
+</li>
+
+<li class="{{ Request::is('designs*') ? 'active' : '' }}">
+    <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
+</li>
+
+<li class="{{ Request::is('designs*') ? 'active' : '' }}">
+    <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
+</li>
+
+<li class="{{ Request::is('designs*') ? 'active' : '' }}">
+    <a href="{!! route('designs.index') !!}"><i class="fa fa-edit"></i><span>Designs</span></a>
+</li>
+

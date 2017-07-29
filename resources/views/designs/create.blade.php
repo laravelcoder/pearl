@@ -12,7 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'designs.store','enctype'=>"multipart/form-data"]) !!}
+                    {!! Form::open(['route' => 'designs.store']) !!}
 
                         @include('designs.fields')
 
@@ -21,4 +21,12 @@
             </div>
         </div>
     </div>
+    @if($app->environment('local'))
+        <script>
+            if (window.console && window.console.log) {
+                console.log("%c CREATE.blade.php", 'background: #222; color:yellow', "loaded");
+            }
+        </script>
+    @endif
+
 @endsection

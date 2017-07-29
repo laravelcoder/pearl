@@ -195,6 +195,7 @@ return [
         // Spatie\Sitemap\SitemapServiceProvider::class,
 
         Lavary\Menu\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -253,6 +254,7 @@ return [
         // 'GoogleCalendar' => Spatie\GoogleCalendar\GoogleCalendarFacade::class,
         // 'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
         'Menu'       => Lavary\Menu\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
