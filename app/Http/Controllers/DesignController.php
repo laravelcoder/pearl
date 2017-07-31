@@ -60,6 +60,10 @@
                     $photoName = $file->getClientOriginalName();
                     //$photoName = $name . '.' . $file->getClientOriginalExtension();
 
+                    Image::make($file)->resize(150, 150,function ($constraint) {
+                        $constraint->upsize();
+                    })->save('assets/images/designs/hp/' . $photoName);
+
                     Image::make($file)->resize(660, 440,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/hp/' . $photoName);
@@ -149,8 +153,8 @@
             $images = array();
             if ($files = $request->file('image')) {
                 foreach ($files as $file) {
-                    $name = $file->getClientOriginalName();
-                    $photoName = $name . '.' . $file->getClientOriginalExtension();
+                    $photoName = $file->getClientOriginalName();
+                    // $photoName = $name . '.' . $file->getClientOriginalExtension();
                     $file->move(public_path('assets/images/designs'), $photoName);
                     $images[] = $photoName;
                 }

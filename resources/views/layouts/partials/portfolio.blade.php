@@ -16,26 +16,27 @@
             <li class="portfolio-item wow fadeIn wow fadeIn" data-wow-delay="0.1s" data-groups='["all", "print", "branding"]'>
               <div class="portfolio gallery-image-hover">
                 <div class="dark-overlay"></div>
-                <img src="assets/images/portfolio/grid/1.jpg" alt="">
+                <img src="{!! asset('assets/images/designs/hp') !!}/{!! $design->image !!}" alt="{!! $design->name !!}">
                 <div class="portfolio-wrap">
                   <div class="portfolio-description">
-                    <h3 class="portfolio-title">Business Cards</h3>
+                    <h3 class="portfolio-title">{!! $design->name !!}</h3>
                     <a href="single-portfolio.html" class="links">Print Design</a> </div>
                   <!--=== /.project-info ===-->
                   <ul class="portfolio-details">
-                    <li><a class="alpha-lightbox" href="assets/images/portfolio/grid/1.jpg"><i class="fa fa-search"></i></a></li>
+                    <li><a class="alpha-lightbox" href="{!! asset('assets/images/designs/hp') !!}/{!! $design->image !!}"><i class="fa fa-search"></i></a></li>
+
                     <li><a href="single-portfolio.html"><i class="fa fa-link"></i></a></li>
                   </ul>
                 </div>
               </div>
-
+              <!--=== /.portfolio ===-->
+            </li>
             @endforeach
 
 
 
-              <!--=== /.portfolio ===-->
-            </li>
-            <li class="portfolio-item wow fadeIn" data-wow-delay="0.2s" data-groups='["all", "branding", "web"]'>
+
+      {{--       <li class="portfolio-item wow fadeIn" data-wow-delay="0.2s" data-groups='["all", "branding", "web"]'>
               <div class="portfolio gallery-image-hover">
                 <div class="dark-overlay"></div>
                 <img src="assets/images/portfolio/grid/2.jpg" alt="">
@@ -119,7 +120,7 @@
                 </div>
               </div>
               <!--=== /.portfolio ===-->
-            </li>
+            </li> --}}
           </ul>
         </div>
       </div>

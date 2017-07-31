@@ -1,40 +1,40 @@
 	/* ===================================================================
-	
+
 	Author       	: Incognito Themes
 	Template Name	: Arcon - Multi Purpose HTML5 Template
 	Version      	: 1.0
-	
+
 	* ================================================================= */
-	
+
 
 
 	/* ===== LOADER OVERLAY ===== */
-	
+
 	 jQuery(function ($) {
 	'use strict';
-	
+
 	jQuery(document).ready(function ($) {
-		
+
 	$(window).on("load resize", function () {
         $('#loader-overlay').fadeOut('slow', function () {
             $(this).remove();
         });
 	});
-	
-	
+
+
 	/* ===== Fixed Footer ===== */
-	
+
 	var $window = $(window);
-	
+
 	$('<div class="footer-height"></div>').insertAfter('#footer-fixed');
-	
+
 	$window.on('resize', function() {
         $('.footer-height').css('height', $('#footer-fixed').height());
       })
       .trigger('resize');
-	  
+
 	  if ($('#footer-fixed').length) {
-      
+
     }
 
     /* ===== COUNTERS ===== */
@@ -50,10 +50,10 @@
             }
         });
     });
-	
+
 	/* ===== COUNTDOWN ===== */
-	 
-	
+
+
 	if ($('.countdown').length > 0) {
         $(".countdown").countdown({
             date: "21 dec 2017 12:00:00",
@@ -61,23 +61,23 @@
         });
 
 	}
-	
+
 	/* ===== PROGRESS BAR ===== */
-	
+
 	$(window).scroll(function() {
 		progress_bars();
 	});
-	
+
 	function progress_bars() {
 		$(".progress .progress-bar:in-viewport").each(function() {
 			if (!$(this).hasClass("animated")) {
 				$(this).addClass("animated");
 				$(this).width($(this).attr("data-width") + "%");
 			}
-			
+
 		});
 	}
-	
+
 	$('.progress-ring').waypoint(function () {
         var totalProgress, progress, circles;
         circles = document.querySelectorAll('.progress-svg');
@@ -99,7 +99,7 @@
         controlNav: true,
         keyboard: true,
     });
-	
+
 	/* ~~~ Widget Slider ~~~ */
     $('.slider-bg-static').flexslider({
         mode: 'fade',
@@ -107,7 +107,7 @@
         controlNav: true,
         keyboard: true
     });
-	
+
 	/* ~~~ Product Slider ~~~ */
     $('.product-slider').flexslider({
         mode: 'fade',
@@ -116,7 +116,7 @@
         keyboard: true,
 		directionNav: false
     });
-	
+
 	/* ~~~ Team Slider ~~~ */
     $(".team-slider").owlCarousel({
 		items : 1,
@@ -128,7 +128,7 @@
 		transitionStyle : "fadeUp",
 	});
 
-	
+
 	/* ~~~ Testimonials Slider ~~~ */
 	$(".testimonial").slick({
         dots: true,
@@ -138,9 +138,9 @@
         slidesToScroll: 1,
 		centerPadding: '0'
       });
-	
+
 	/* ~~~ Client Slider ~~~ */
-	$("#client-slider").owlCarousel({ 
+	$("#client-slider").owlCarousel({
 		items : 6,
 		itemsDesktop : [1199,6],
 	    itemsDesktopSmall : [980,5],
@@ -152,7 +152,7 @@
 		autoPlay:3000,
 		stopOnHover:true
 	});
-	
+
 	/* ~~~ Blog Slider ~~~ */
     $(".blog-slider").owlCarousel({
 		items : 3,
@@ -165,8 +165,8 @@
 		autoPlay:3000,
 		stopOnHover:true
 	});
-	
-	
+
+
 	/* ~~~ Blog Slider ~~~ */
     $(".blog-grid-slider").owlCarousel({
 		items : 1,
@@ -178,7 +178,7 @@
 		transitionStyle : "fadeUp",
 	 	navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
 	});
-   
+
 	/* ~~~ Porfolio Slider ~~~ */
     $(".portfolio-slider").owlCarousel({
 		items : 1,
@@ -190,7 +190,7 @@
 		transitionStyle : "fadeUp",
 	 	navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
 	});
-	
+
 	/* ~~~ Porfolio Slider ~~~ */
     $(".resume-slider").owlCarousel({
 		items : 2,
@@ -204,8 +204,8 @@
 		autoPlay:3000,
 		stopOnHover:true
 	});
-	
-	
+
+
 	/* ~~~ Owl Slider ~~~ */
     $(".owl-slider").owlCarousel({
 		items : 1,
@@ -217,7 +217,7 @@
 		transitionStyle : "fadeUp",
 	 	navigationText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
 	});
-	 
+
 
     /* ===== Go to Top ===== */
 
@@ -274,10 +274,10 @@
         scrollProperty: 'scroll',
         responsive: true
     });
-	
+
 
 	/* ===== Animate Text ===== */
-	 
+
     if ($('.rotate').length > 0) {
         $(".rotate").textrotator({
             animation: "dissolve", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
@@ -285,9 +285,9 @@
             speed: 3000 // How many milliseconds until the next word show.
         });
     }
-	
+
 	/* ===== Search Overlay ===== */
-	
+
 	  var wHeight = window.innerHeight;
 	  //search bar middle alignment
 	  $('#fullscreen-searchform').css('top', wHeight / 2);
@@ -303,7 +303,7 @@
 	  $('a.fullscreen-close').on('click', function () {
 		$("div.fullscreen-search-overlay").removeClass("fullscreen-search-overlay-show");
 	  });
-	
+
 
     /* ===== Fullscreen Video ===== */
 
@@ -364,7 +364,7 @@
 
 
     /* ===== SKILLS BAR ===== */
-	 
+
 	 $('.skillbar').each(function(){
 		$(this).find('.skillbar-bar').animate({
 			width:jQuery(this).attr('data-percent')
@@ -372,7 +372,7 @@
 	});
 
     /* ===== CONTACT FORM ===== */
-	 
+
 	$(function () {
 
     $('#contact-form').validator();
@@ -380,7 +380,7 @@
 		$('#contact-form').on('submit', function (e) {
 			if (!e.isDefaultPrevented()) {
 				var url = "assets/php/contact.php";
-	
+
 				$.ajax({
 					type: "POST",
 					url: url,
@@ -389,7 +389,7 @@
 					{
 						var messageAlert = 'alert-' + data.type;
 						var messageText = data.message;
-	
+
 						var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
 						if (messageAlert && messageText) {
 							$('#contact-form').find('.messages').html(alertBox);
@@ -404,60 +404,60 @@
 
     /* ===== CBP PORTFOLIO ===== */
 	 $(window).load(function(){
-		 
+
 	 /* ~~~ Blog Masonry ~~~ */
 		if ($('#blogMasonry').length > 0) {
-	
+
 			$('#blogMasonry').masonry({
 			   //options
 			  itemSelector: '.blog-masonry-item',
 			});
 		}
-	
+
 	/* ~~~ Portfolio Masonry ~~~ */
 		if ($('#portfolioMasonry').length > 0) {
-	
+
 			$('#portfolioMasonry').masonry({
 			   //options
 			  itemSelector: '.portfolio-masonry-item',
 		   });
 	   }
-   
-   
+
+
 		if ($('#portfolio-grid').length > 0) {
 			/* initialize shuffle plugin */
 			var $grid = $('#portfolio-grid');
-	
+
 			$grid.shuffle({
 				itemSelector: '.portfolio-item' // the selector for the items in the grid
 			});
-	
+
 			/* reshuffle when user clicks a filter item */
 			$('#portfolio-filter li').on('click', function (e) {
 				e.preventDefault();
-	
+
 				// set active class
 				$('#portfolio-filter li').removeClass('active');
 				$(this).addClass('active');
-	
+
 				// get group name from clicked item
 				var groupName = $(this).attr('data-group');
-	
+
 				// reshuffle grid
 				$grid.shuffle('shuffle', groupName );
 			});
 		}
-	
+
 		var wow = new WOW({
-				offset: 100,          
+				offset: 100,
 				mobile: false
 			  }
 			);
 			wow.init();
-		
+
 		});
 
-	
+
 	/* === magnificPopup === */
 
 		$('.alpha-lightbox').magnificPopup({
@@ -467,7 +467,7 @@
 			fixedContentPos: false
 			// other options
 		});
-		
+
 		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
 			disableOn: 700,
 			type: 'iframe',
@@ -476,21 +476,21 @@
 			preloader: false,
 			fixedContentPos: false
 		});
-	
-	});	
+
+	});
 
 	/* ===== GOOGLE MAPS  ===== */
 	    if ($('#myMap').length > 0) {
         //set your google maps parameters
-        var $latitude = 40.716304, //If you unable to find latitude and longitude of your address. Please visit http://www.latlong.net/convert-address-to-lat-long.html you can easily generate.
-            $longitude = -73.995763,
+        var $latitude = 40.632054, //If you unable to find latitude and longitude of your address. Please visit http://www.latlong.net/convert-address-to-lat-long.html you can easily generate.
+            $longitude = -112.012722,
             $map_zoom = 16 /* ZOOM SETTING */
 
-        //google map custom marker icon 
+        //google map custom marker icon
         var $marker_url = 'assets/images/pin.png';
 
         //we define here the style of the map
-        var style = 
+        var style =
             [
 		  {
 			"elementType": "geometry",
@@ -675,7 +675,7 @@
         }
         //inizialize the map
         var map = new google.maps.Map(document.getElementById('myMap'), map_options);
-        //add a custom marker to the map                
+        //add a custom marker to the map
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng($latitude, $longitude),
             map: map,
@@ -692,20 +692,20 @@
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
         });
-       
+
     }
-	
+
 	if ($('#myMapTwo').length > 0) {
         //set your google maps parameters
         var $latitude = 40.716304, //If you unable to find latitude and longitude of your address. Please visit http://www.latlong.net/convert-address-to-lat-long.html you can easily generate.
             $longitude = -73.995763,
             $map_zoom = 16 /* ZOOM SETTING */
 
-        //google map custom marker icon 
+        //google map custom marker icon
         var $marker_url = 'assets/images/pin.png';
 
         //we define here the style of the map
-        var style = 
+        var style =
             [
 		  {
 			"elementType": "geometry",
@@ -890,7 +890,7 @@
         }
         //inizialize the map
         var map = new google.maps.Map(document.getElementById('myMapTwo'), map_options);
-        //add a custom marker to the map                
+        //add a custom marker to the map
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng($latitude, $longitude),
             map: map,
@@ -902,10 +902,10 @@
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
         });
-       
+
     }
-	
-	
+
+
 	 });
 
 /*End Jquery*/

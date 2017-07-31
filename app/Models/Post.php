@@ -15,7 +15,7 @@ class Post extends Model
     use SoftDeletes;
 
     public $table = 'posts';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -75,8 +75,49 @@ class Post extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    public function setUrlAttribute($value)
+    {
+        $this->attributes['url'] = $value;
+    }
+
+    public function getUrlAttribute()
+    {
+        return 'blog/'.$this->attributes['slug'];
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'posts_tags');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+
+        public function syncTags(array $tags)
+    {
+        Tag::addNeededTags($tags);
+
+        if (count($tags)) {
+            $this->tags()->sync(
+          Tag::whereIn('tag', $tags)->lists('id')->all()
+        );
+
+            return;
+        }
+
+        $this->tags()->detach();
+    }
+
+    // public function scopeActive($query)
+    // {
+    //     return $query->where('status', 1);
+    // }
+
+
 }
