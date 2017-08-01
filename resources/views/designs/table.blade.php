@@ -3,19 +3,16 @@
         <th>Id</th>
         <th>Image</th>
         <th>Name</th>
-
         <th>Price</th>
-
-
         <th colspan="3">Action</th>
          <th>Published</th>
     </thead>
     <tbody>
     @foreach($designs as $design)
         <tr>
-            <td>{!! $design->id !!}</td>
+            <td class="media-middle">{!! $design->id !!}</td>
 
-            <td>
+            <td class="media-left">
             @if($design->image)
             <img src="{!! url('assets/images/designs/thumbs/') !!}{!! $design->image !!}" />
             @else
@@ -26,7 +23,7 @@
             <td class="media-middle">{!! $design->price !!}</td>
 
 
-            <td>
+            <td class="media-middle">
                 {!! Form::open(['route' => ['designs.destroy', $design->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('designs.show', [$design->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
