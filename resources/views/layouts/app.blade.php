@@ -18,6 +18,17 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+    <style type="text/css">
+
+td .media-body {width: auto; }
+.table > tbody > tr > td.media-middle {vertical-align: middle; font-size: 1.5em }
+ @media (min-width: 768px) {
+  .media-left img {max-width: 120px; margin-right: 20px; }
+}
+    </style>
+
+
+
     @yield('css')
 </head>
 
@@ -29,7 +40,7 @@
 
             <!-- Logo -->
             <a href="#" class="logo">
-                <b>InfyOm</b>
+                <b>PEARLessence</b>
             </a>
 
             <!-- Header Navbar -->
@@ -143,6 +154,9 @@
     </div>
     @endif
 
+
+
+
     <!-- jQuery 3.1.1 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -153,8 +167,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
-    <script src="{!! asset('/assets/js/repeatable-fields.js') !!}"></script>
+    {{-- <script src="{!! asset('/assets/js/repeatable-fields.js') !!}"></script> --}}
+<script>
+
+    $("#banner").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize: 100000,
+        maxFilesNum: 4,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+    });
+
+    $("#image").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize: 100000,
+        maxFilesNum: 4,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+    });
+    /*
+     $(".file").on('fileselect', function(event, n, l) {
+     alert('File Selected. Name: ' + l + ', Num: ' + n);
+     });
+     */
+
+    $(".btn-warning").on('click', function () {
+        var $el = $("#file-4");
+        if ($el.attr('disabled')) {
+            $el.fileinput('enable');
+        } else {
+            $el.fileinput('disable');
+        }
+    });
+    $(".btn-info").on('click', function () {
+        $("#image").fileinput('refresh', {previewClass: 'bg-info'});
+    });
+
+    $('.summernote').summernote({
+      height: 300,                 // set editor height
+      minHeight: null,             // set minimum height of editor
+      maxHeight: null,             // set maximum height of editor
+      focus: true                  // set focus to editable area after initializing summernote
+    });
+</script>
 
     @yield('scripts')
+
 </body>
 </html>

@@ -62,7 +62,7 @@
 
                     Image::make($file)->resize(150, 150,function ($constraint) {
                         $constraint->upsize();
-                    })->save('assets/images/designs/hp/' . $photoName);
+                    })->save('assets/images/designs/thumb/' . $photoName);
 
                     Image::make($file)->resize(660, 440,function ($constraint) {
                         $constraint->upsize();
@@ -80,6 +80,7 @@
 
                     $images[] = $photoName;
                 }
+
                 $data['image'] = serialize($images);
             } else
                 unset($data['image']);
@@ -155,6 +156,24 @@
                 foreach ($files as $file) {
                     $photoName = $file->getClientOriginalName();
                     // $photoName = $name . '.' . $file->getClientOriginalExtension();
+
+                    Image::make($file)->resize(150, 150,function ($constraint) {
+                        $constraint->upsize();
+                    })->save('assets/images/designs/thumb/' . $photoName);
+
+                    Image::make($file)->resize(660, 440,function ($constraint) {
+                        $constraint->upsize();
+                    })->save('assets/images/designs/hp/' . $photoName);
+
+                    Image::make($file)->resize(870, 1170,function ($constraint) {
+                        $constraint->upsize();
+                    })->save('assets/images/designs/single/' . $photoName);
+
+                    Image::make($file)->resize(800, 900,function ($constraint) {
+                        $constraint->upsize();
+                    })->save('assets/images/designs/upsell/' . $photoName);
+
+
                     $file->move(public_path('assets/images/designs'), $photoName);
                     $images[] = $photoName;
                 }

@@ -52,6 +52,12 @@
     <p>{!! $design->availability !!}</p>
 </div>
 
+<!-- Button Code Field -->
+<div class="form-group">
+    {!! Form::label('button_code', 'Button Code:') !!}
+    <p>{!! $design->button_code !!}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="form-group">
     {!! Form::label('created_at', 'Created At:') !!}

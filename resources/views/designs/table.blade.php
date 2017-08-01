@@ -1,22 +1,31 @@
 <table class="table table-responsive" id="designs-table">
     <thead>
         <th>Id</th>
-        <th>Published</th>
-        <th>Name</th>
         <th>Image</th>
+        <th>Name</th>
+
         <th>Price</th>
-        <th>Availability</th>
+
+
         <th colspan="3">Action</th>
+         <th>Published</th>
     </thead>
     <tbody>
     @foreach($designs as $design)
         <tr>
             <td>{!! $design->id !!}</td>
-            <td>{!! $design->published !!}</td>
-            <td>{!! $design->name !!}</td>
-            <td>{!! $design->image !!}</td>
-            <td>{!! $design->price !!}</td>
-            <td>{!! $design->availability !!}</td>
+
+            <td>
+            @if($design->image)
+            <img src="{!! url('assets/images/designs/thumbs/') !!}{!! $design->image !!}" />
+            @else
+            <img src="http://via.placeholder.com/150x150" />
+            @endif
+            </td>
+            <td class="media-middle">{!! $design->name !!}</td>
+            <td class="media-middle">{!! $design->price !!}</td>
+
+
             <td>
                 {!! Form::open(['route' => ['designs.destroy', $design->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
@@ -27,6 +36,7 @@
                 {!! Form::close() !!}
             </td>
         </tr>
+        <td>{!! $design->published !!}</td>
     @endforeach
     </tbody>
 </table>

@@ -35,7 +35,10 @@
   <!--=== Testimonails End ===-->
 
   <!--=== Blogs Start ===-->
+  @if (count($posts) > 1)
     @include('layouts.partials.blog')
+  @endif
+
   <!--=== Blogs End ===-->
 
 @endsection
