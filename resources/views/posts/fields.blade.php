@@ -1,6 +1,6 @@
 <!-- Is Published Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('is_published', 'Is Published:') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('is_published', 'Published:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('is_published', false) !!}
         {!! Form::checkbox('is_published', '1', null) !!} 1
@@ -8,45 +8,39 @@
 </div>
 
 <!-- Category Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('category_id', 'Category Id:') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('category_id', 'Category:') !!}
     {!! Form::number('category_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- User Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('user_id', 'User Id:') !!}
+<div class="form-group col-sm-4">
+    {!! Form::label('user_id', 'Author:') !!}
     {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Title Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-10">
     {!! Form::label('title', 'Title:') !!}
     {!! Form::text('title', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Subtitle Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-8">
     {!! Form::label('subtitle', 'Subtitle:') !!}
     {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Banner Field -->
+<div class="form-group col-sm-10">
+    {!! Form::label('banner', 'Banner:') !!}
+    {!! Form::file('banner[]', ['id' => 'banner', 'class' => 'form-control file', 'data-overwrite-initial' => 'false']) !!}
 </div>
 
 <!-- Content Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('content', 'Content:') !!}
     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Notes Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('notes', 'Notes:') !!}
-    {!! Form::textarea('notes', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Slug Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('slug', 'Slug:') !!}
-    {!! Form::text('slug', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Meta Title Field -->
@@ -88,20 +82,26 @@
 <!-- Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('image', 'Image:') !!}
-    
-    {!! Form::file('image[]', ['class' => 'form-control','multiple']) !!}
+    {!! Form::file('image[]', ['id' => 'image', 'class' => 'form-control file', 'data-overwrite-initial' => 'false']) !!}
 </div>
 
-<!-- Banner Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::file('banner[]', ['class' => 'form-control','multiple']) !!}
+<!-- Slug Field -->
+<div class="form-group col-sm-3">
+    {!! Form::label('slug', 'Slug:') !!}
+    {!! Form::text('slug', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- View Count Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('view_count', 'View Count:') !!}
     {!! Form::number('view_count', null, ['class' => 'form-control']) !!}
+</div>
+
+
+<!-- Notes Field -->
+<div class="form-group col-sm-12 col-lg-6">
+    {!! Form::label('notes', 'Notes:') !!}
+    {!! Form::textarea('notes', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Design
  * @package App\Models
- * @version July 29, 2017, 8:36 am UTC
+ * @version July 31, 2017, 8:58 pm UTC
  */
 class Design extends Model
 {
@@ -28,7 +28,8 @@ class Design extends Model
         'short_details',
         'details',
         'price',
-        'availability'
+        'availability',
+        'button_code'
     ];
 
     /**
@@ -43,7 +44,8 @@ class Design extends Model
         'image' => 'string',
         'short_details' => 'string',
         'details' => 'string',
-        'availability' => 'string'
+        'availability' => 'string',
+        'button_code' => 'string'
     ];
 
     /**
