@@ -50,6 +50,11 @@ class Category extends Model
         'title' => 'required'
     ];
 
+    public function setUrlAttribute($value)
+    {
+        $this->attributes['url'] = $value;
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -59,4 +64,11 @@ class Category extends Model
     {
         return $this->hasMany(Design::class);
     }
+
+    public function getUrlAttribute()
+    {
+        return 'category/'.$this->attributes['slug'];
+    }
+
+
 }

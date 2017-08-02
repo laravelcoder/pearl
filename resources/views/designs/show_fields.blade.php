@@ -4,6 +4,12 @@
     <p>{!! $design->id !!}</p>
 </div>
 
+<!-- Published Field -->
+<div class="form-group">
+    {!! Form::label('published', 'Published:') !!}
+    <p>{!! $design->published !!}</p>
+</div>
+
 <!-- Name Field -->
 <div class="form-group">
     {!! Form::label('name', 'Name:') !!}
@@ -44,6 +50,12 @@
 <div class="form-group">
     {!! Form::label('availability', 'Availability:') !!}
     <p>{!! $design->availability !!}</p>
+</div>
+
+<!-- Button Code Field -->
+<div class="form-group">
+    {!! Form::label('button_code', 'Button Code:') !!}
+    <p>{!! $design->button_code !!}</p>
 </div>
 
 <!-- Created At Field -->

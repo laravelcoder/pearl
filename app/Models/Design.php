@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Design
  * @package App\Models
- * @version July 17, 2017, 1:57 am UTC
+ * @version July 31, 2017, 8:58 pm UTC
  */
 class Design extends Model
 {
@@ -21,13 +21,15 @@ class Design extends Model
 
 
     public $fillable = [
+        'published',
         'name',
         'slug',
         'image',
         'short_details',
         'details',
         'price',
-        'availability'
+        'availability',
+        'button_code'
     ];
 
     /**
@@ -36,12 +38,14 @@ class Design extends Model
      * @var array
      */
     protected $casts = [
+        'published' => 'boolean',
         'name' => 'string',
         'slug' => 'string',
         'image' => 'string',
         'short_details' => 'string',
         'details' => 'string',
-        'availability' => 'string'
+        'availability' => 'string',
+        'button_code' => 'string'
     ];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -15,7 +16,7 @@ class Tag extends Model
     use SoftDeletes;
 
     public $table = 'tags';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -47,8 +48,21 @@ class Tag extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    public function posts()
+    {
+       return $this->belongsToMany(Post::class, 'posts_tags');
+    }
+
+    public function setUrlAttribute($value)
+    {
+        $this->attributes['url'] = $value;
+    }
+
+    public function getUrlAttribute()
+    {
+        return '/tag/'.$this->attributes['slug'];
+    }
 }

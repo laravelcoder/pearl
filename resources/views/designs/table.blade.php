@@ -1,25 +1,29 @@
 <table class="table table-responsive" id="designs-table">
     <thead>
-        <th>Name</th>
-        <th>Slug</th>
+        <th>Id</th>
         <th>Image</th>
-        <th>Short Details</th>
-        <th>Details</th>
+        <th>Name</th>
         <th>Price</th>
-        <th>Availability</th>
         <th colspan="3">Action</th>
+         <th>Published</th>
     </thead>
     <tbody>
     @foreach($designs as $design)
         <tr>
-            <td>{!! $design->name !!}</td>
-            <td>{!! $design->slug !!}</td>
-            <td>{!! $design->image !!}</td>
-            <td>{!! $design->short_details !!}</td>
-            <td>{!! $design->details !!}</td>
-            <td>{!! $design->price !!}</td>
-            <td>{!! $design->availability !!}</td>
-            <td>
+            <td class="media-middle">{!! $design->id !!}</td>
+
+            <td class="media-left">
+            @if($design->image)
+            <img src="{!! url('assets/images/designs/thumbs/') !!}{!! $design->image !!}" />
+            @else
+            <img src="http://via.placeholder.com/150x150" />
+            @endif
+            </td>
+            <td class="media-middle">{!! $design->name !!}</td>
+            <td class="media-middle">{!! $design->price !!}</td>
+
+
+            <td class="media-middle">
                 {!! Form::open(['route' => ['designs.destroy', $design->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('designs.show', [$design->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
@@ -29,6 +33,7 @@
                 {!! Form::close() !!}
             </td>
         </tr>
+        <td>{!! $design->published !!}</td>
     @endforeach
     </tbody>
 </table>
