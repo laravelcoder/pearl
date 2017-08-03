@@ -59,19 +59,26 @@
                 foreach ($files as $file) {
                     $photoName = $file->getClientOriginalName();
                     //$photoName = $name . '.' . $file->getClientOriginalExtension();
-
+                    $path = public_path().'/assets/images/designs/thumb/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(150, 150,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/thumb/' . $photoName);
 
+                    $path = public_path().'/assets/images/designs/hp/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(660, 440,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/hp/' . $photoName);
 
+                    $path = public_path().'/assets/images/designs/single/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(870, 1170,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/single/' . $photoName);
 
+                    $path = public_path().'/assets/images/designs/upsell/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(800, 900,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/upsell/' . $photoName);
@@ -156,19 +163,26 @@
                 foreach ($files as $file) {
                     $photoName = $file->getClientOriginalName();
                     // $photoName = $name . '.' . $file->getClientOriginalExtension();
-
+                    $path = public_path().'/assets/images/designs/thumb/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(150, 150,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/thumb/' . $photoName);
-
+                    
+                    $path = public_path().'/assets/images/designs/hp/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(660, 440,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/hp/' . $photoName);
-
+                    
+                    $path = public_path().'/assets/images/designs/single/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(870, 1170,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/single/' . $photoName);
-
+                    
+                    $path = public_path().'/assets/images/designs/upsell/';
+                    File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(800, 900,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/upsell/' . $photoName);
