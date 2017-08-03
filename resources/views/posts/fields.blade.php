@@ -34,7 +34,7 @@
 <!-- Banner Field -->
 <div class="form-group col-sm-10">
     {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::file('banner[]', ['id' => 'banner', 'class' => 'form-control file', 'data-overwrite-initial' => 'false']) !!}
+    {!! Form::file('banner[]', ['id' => 'banner', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple']) !!}
 </div>
 
 <!-- Content Field -->
@@ -82,7 +82,7 @@
 <!-- Image Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('image', 'Image:') !!}
-    {!! Form::file('image[]', ['id' => 'image', 'class' => 'form-control file', 'data-overwrite-initial' => 'false']) !!}
+    {!! Form::file('image[]', ['id' => 'image', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple']) !!}
 </div>
 
 <!-- Slug Field -->

@@ -13,8 +13,10 @@
     <tbody>
     @foreach($posts as $post)
         <tr>
-
-            <td>{!! $post->image !!}</td>
+            
+            <td>@foreach(unserialize($post->image) as $img)
+    <img src="{!! url('assets/images/post/thumb/'.$img) !!}" width="100px"/>
+    @endforeach</td>
             {{-- <td>{!! $post->user_id !!}</td> --}}
             <td>
                 <a href="{!! route('posts.edit', [$post->id]) !!}" class=''>
