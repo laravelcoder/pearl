@@ -91,13 +91,21 @@
 <!-- Image Field -->
 <div class="form-group">
     {!! Form::label('image', 'Image:') !!}
-    <p>{!! $post->image !!}</p>
+     <p>
+    @foreach(unserialize($post->image) as $img)
+    <img src="{!! url('assets/images/post/thumb/'.$img) !!}" width="100px"/>
+    @endforeach
+    </p>
 </div>
 
 <!-- Banner Field -->
 <div class="form-group">
     {!! Form::label('banner', 'Banner:') !!}
-    <p>{!! $post->banner !!}</p>
+    <p>
+    @foreach(unserialize($post->banner) as $img)
+    <img src="{!! url('assets/images/post/banners/'.$img) !!}" width="100px"/>
+    @endforeach
+    </p>
 </div>
 
 <!-- View Count Field -->

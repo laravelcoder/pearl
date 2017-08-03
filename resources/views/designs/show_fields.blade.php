@@ -25,7 +25,11 @@
 <!-- Image Field -->
 <div class="form-group">
     {!! Form::label('image', 'Image:') !!}
-    <p>{!! $design->image !!}</p>
+    <p>
+    @foreach(unserialize($design->image) as $img)
+    <img src="{!! url('assets/images/designs/thumb/'.$img) !!}" width="100px"/>
+    @endforeach
+    </p>
 </div>
 
 <!-- Short Details Field -->
