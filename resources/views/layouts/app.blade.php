@@ -176,6 +176,7 @@ td .media-body {width: auto; }
         overwriteInitial: false,
         maxFileSize: 100000,
         maxFilesNum: 4,
+        showUpload: false,
         //allowedFileTypes: ['image', 'video', 'flash'],
         slugCallback: function (filename) {
             return filename.replace('(', '_').replace(']', '_');
@@ -188,6 +189,7 @@ td .media-body {width: auto; }
         overwriteInitial: false,
         maxFileSize: 100000,
         maxFilesNum: 4,
+        showUpload: false,
         //allowedFileTypes: ['image', 'video', 'flash'],
         slugCallback: function (filename) {
             return filename.replace('(', '_').replace(']', '_');

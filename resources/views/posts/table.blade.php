@@ -14,9 +14,9 @@
     @foreach($posts as $post)
         <tr>
             
-            <td>@foreach(unserialize($post->image) as $img)
-    <img src="{!! url('assets/images/post/thumb/'.$img) !!}" width="100px"/>
-    @endforeach</td>
+            <td>
+    <img src="{!! url('assets/images/post/thumb/'.unserialize($post->image)[0]) !!}" width="100px"/>
+    </td>
             {{-- <td>{!! $post->user_id !!}</td> --}}
             <td>
                 <a href="{!! route('posts.edit', [$post->id]) !!}" class=''>

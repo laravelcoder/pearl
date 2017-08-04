@@ -14,9 +14,9 @@
 
             <td class="media-left">
             @if($design->image)
-            @foreach(unserialize($design->image) as $img)
-            <img src="{!! url('assets\images\designs\thumb') !!}/{!! $img !!}" />
-            @endforeach
+            
+            <img src="{!! url('assets\images\designs\thumb') !!}/{!! unserialize($design->image)[0] !!}" />
+           
             @else
             <img src="http://via.placeholder.com/150x150" />
             @endif
