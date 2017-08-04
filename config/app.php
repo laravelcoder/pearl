@@ -162,6 +162,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -255,6 +256,7 @@ return [
         // 'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
         'Menu'       => Lavary\Menu\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
 
     ],
 
