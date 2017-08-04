@@ -13,7 +13,7 @@
 <!-- Banner Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::file('banner') !!}
+    {!! Form::file('banner',['multiple']) !!}
 </div>
 <div class="clearfix"></div>
 
