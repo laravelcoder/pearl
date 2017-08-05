@@ -48,7 +48,11 @@ td .media-body {width: auto; }
             </a>
 
             <!-- Header Navbar -->
+        @if (Request::path() == '/')
             <nav class="navbar navbar-static-top" role="navigation">
+        @else
+            <nav class="navbar navbar-default navbar-fixed white bootsnav on no-full" role="navigation">
+        @endif
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>

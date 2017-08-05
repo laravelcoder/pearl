@@ -18,7 +18,7 @@
 
   <!--=== Counter Start ===-->
 
-  @include('layouts.partials.counter')
+  {{-- @include('layouts.partials.counter') --}}
   <!--=== Counter End ===-->
 
   <!--=== Our Team Start ===-->
