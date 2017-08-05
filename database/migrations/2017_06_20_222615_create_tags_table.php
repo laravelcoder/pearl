@@ -13,10 +13,10 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
-            $table->string('lang', 20);
+            $table->string('lang', 20)->nullable();
         });
 
         // Schema::create('taggable_tags', function (Blueprint $table) {

@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Repositories\PostRepository;
+use App\Repositories\CategoryRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use File;
+use App\User;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -17,9 +21,13 @@ class PostController extends AppBaseController {
 
     /** @var  PostRepository */
     private $postRepository;
+    protected $user;
+    protected $category;
 
-    public function __construct(PostRepository $postRepo) {
+    public function __construct(PostRepository $postRepo, User $user, CategoryRepository $categoryRepo) {
         $this->postRepository = $postRepo;
+        $this->categoryRepository = $categoryRepo;
+        $this->user    = $user;
     }
 
     /**
@@ -42,7 +50,11 @@ class PostController extends AppBaseController {
      * @return Response
      */
     public function create() {
-        return view('posts.create');
+
+        $users = User::pluck('name', 'id');
+        $categories = Category::pluck('title', 'id');
+
+        return view('posts.create', compact('categories', 'users'));
     }
 
     /**

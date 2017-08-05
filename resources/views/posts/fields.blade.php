@@ -1,22 +1,25 @@
 <!-- Is Published Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('is_published', 'Published:') !!}
+<div class="col-sm-1">
+
+</div>
+
+<div class="form-group col-sm-2 checkbox">
+    {{-- {!! Form::label('is_published', 'Published:') !!} --}}
     <label class="checkbox-inline">
-        {!! Form::hidden('is_published', false) !!}
-        {!! Form::checkbox('is_published', '1', null) !!} 1
+         {!! Form::checkbox('is_published', '1', true, ['data-toggle' => 'toggle','data-on'=>'Published   ', 'data-off'=>'  Un-Published', 'data-onstyle'=>'success', 'data-offstyle'=>'danger', 'data-width'=> '150']) !!}
     </label>
 </div>
 
 <!-- Category Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('category_id', 'Category:') !!}
-    {!! Form::number('category_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('category_id', $categories, ['class' => 'form-control']) !!}
 </div>
 
 <!-- User Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('user_id', 'Author:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+    {!! Form::number('user_id', $users, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Title Field -->

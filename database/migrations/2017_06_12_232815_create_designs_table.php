@@ -21,7 +21,7 @@ class CreateDesignsTable extends Migration
             $table->string('short_details')->nullable();
             $table->string('button_code')->nullable();
             $table->boolean('published')->default(1);
-            $table->text('details');
+            $table->text('details')->nullable();
             $table->decimal('price', 11, 2)->nullable();
             $table->string('availability')->nullable();
             $table->timestamps();
