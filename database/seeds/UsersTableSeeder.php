@@ -27,6 +27,15 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2017-06-12 23:17:45',
                 'updated_at' => '2017-06-12 23:17:45',
             ),
+            array (
+                'id' => 2,
+                'name' => 'andpar79',
+                'email' => 'contact@orderpearlessence.com',
+                'password' => bcrypt('Pearl2017'),
+                'remember_token' => NULL,
+                'created_at' => '2017-06-12 23:17:45',
+                'updated_at' => '2017-06-12 23:17:45',
+            )
         ));
         
         
