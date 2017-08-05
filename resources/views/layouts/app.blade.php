@@ -14,6 +14,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/css/fileinput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css">
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -24,9 +25,6 @@ td .media-body {width: auto; }
 .table > tbody > tr > td.media-middle {vertical-align: middle; font-size: 1.5em }
  @media (min-width: 768px) {
   .media-left img {max-width: 120px; margin-right: 20px; }
-}
-.nav>li>a>img {
-    max-width: 30px;
 }
     </style>
 
@@ -60,27 +58,18 @@ td .media-body {width: auto; }
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                @if(Gravatar::exists(Auth::user()->email)):
-                                    <img src="{{ Gravatar::src(Auth::user()->email, 80) }}" class="img-circle" alt="User Image"/>
-                                @else
-                                    <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
-                                @endif
+                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                     class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{!! Auth::user()->name !!}</span>
                             </a>
-
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    @if(Gravatar::exists(Auth::user()->email)):
-                                        <img src="{{ Gravatar::src(Auth::user()->email) }}" class="img-circle" alt="User Image"/>
-                                    @else
-                                        <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
-                                    @endif
+                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                         class="img-circle" alt="User Image"/>
                                     <p>
                                         {!! Auth::user()->name !!}
-                                        {{-- {!! Auth::user()->email !!} --}}
-
                                         <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
@@ -179,6 +168,7 @@ td .media-body {width: auto; }
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
     {{-- <script src="{!! asset('/assets/js/repeatable-fields.js') !!}"></script> --}}
 <script>
 
