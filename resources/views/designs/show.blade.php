@@ -37,6 +37,7 @@
                     <h3 class="grey">${!! $design->price !!}</h3>
                     <div class="single-product-des">
                         <h5>Product Desription</h5>
+
                         {!! $design->short_details !!}
                     </div>
 

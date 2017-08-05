@@ -96,6 +96,10 @@ class Post extends Model
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(App\User::class);
+    }
 
         public function syncTags(array $tags)
     {
