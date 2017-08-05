@@ -220,6 +220,12 @@
                 return redirect(route('designs.index'));
             }
 
+            // File::delete(public_path() . 'assets/images/designs/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/hp/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/upsell/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/single/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/thumb/' . $design->image);
+
             $this->designRepository->delete($id);
 
             Flash::success('Design deleted successfully.');
