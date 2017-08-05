@@ -26,6 +26,9 @@ td .media-body {width: auto; }
  @media (min-width: 768px) {
   .media-left img {max-width: 120px; margin-right: 20px; }
 }
+.nav>li>a>img {
+    max-width: 30px;
+}
     </style>
 
 
@@ -58,18 +61,27 @@ td .media-body {width: auto; }
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                     class="user-image" alt="User Image"/>
+                                @if(Gravatar::exists(Auth::user()->email)):
+                                    <img src="{{ Gravatar::src(Auth::user()->email, 80) }}" class="img-circle" alt="User Image"/>
+                                @else
+                                    <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
+                                @endif
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{!! Auth::user()->name !!}</span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                         class="img-circle" alt="User Image"/>
+                                    @if(Gravatar::exists(Auth::user()->email)):
+                                        <img src="{{ Gravatar::src(Auth::user()->email) }}" class="img-circle" alt="User Image"/>
+                                    @else
+                                        <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
+                                    @endif
                                     <p>
                                         {!! Auth::user()->name !!}
+                                        {{-- {!! Auth::user()->email !!} --}}
+
                                         <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
