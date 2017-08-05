@@ -6,11 +6,11 @@
 <div class="form-group col-sm-2 checkbox">
     {{-- {!! Form::label('is_published', 'Published:') !!} --}}
     <label class="checkbox-inline">
- 
+
        {!! Form::checkbox('is_published', '1', true, ['data-toggle' => 'toggle','data-on'=>'Published   ', 'data-off'=>'  Un-Published', 'data-onstyle'=>'success', 'data-offstyle'=>'danger', 'data-width'=> '150']) !!}
    </label>
- 
- 
+
+
 </div>
 
                 {{--             <div class="form-group col-md-3">
@@ -22,14 +22,14 @@
 <!-- Category Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('category_id', 'Category:') !!}
- 
+
     {{--{!! Form::select('category_id', $categories, ['class' => 'form-control']) !!}--}}
     {!! Form::select('category', $categories, null, ['class' => 'form-control']) !!}
     {{-- {!! Form::select('category', (['0' => 'Select a Category'] + $categories), null, ['class' => 'form-control']) !!}  --}}
 
- 
+
   {{-- {!! Form::select('category_id', $categories, ['class' => 'form-control']) !!} --}}
- 
+
 </div>
 
 <!-- User Id Field -->
