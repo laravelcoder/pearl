@@ -28,6 +28,7 @@ class PostController extends AppBaseController {
         $this->postRepository = $postRepo;
         $this->categoryRepository = $categoryRepo;
         $this->user    = $user;
+        $this->middleware('auth');
     }
 
     /**
@@ -49,18 +50,18 @@ class PostController extends AppBaseController {
      *
      * @return Response
      */
- 
+
     public function create(Category $categories) {
 
         $users = User::pluck('name', 'id');
         // $categories = Category::pluck('title', 'id');
         $categories = ['0' => 'Select a Category'] + collect($categories)->toArray();
- 
+
   //  public function create() {
 
     //    $users = User::pluck('name', 'id');
       //  $categories = Category::pluck('title', 'id');
- 
+
 
         return view('posts.create', compact('categories', 'users'));
     }
