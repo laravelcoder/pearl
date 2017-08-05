@@ -3,8 +3,8 @@
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <div class="widget widget-text">
-              <div class="logo logo-footer"><a href="index.html"> <img class="logo logo-display" src="assets/images/logo-footer.png" alt=""></a> </div>
-              <p>We’re nuts about improving your business so we ensure that we track results from day one. Sure, we come up with great creative ideas that engage and captivate your customers, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius quam ut magna ultricies pellentesque.</p>
+              <div class="logo logo-footer"><a href="{!! url('/') !!}"> <img class="logo logo-display" src="{!! asset('assets/images/logo-footer.png') !!}" alt="logo"></a> </div>
+              <p>The best part about our necklaces is you get to take it home with you right away.  No waiting for weeks for your setting to come in!  We offer in-home parties, LIVE on-line parties, or you can purchase one of our open at home kits. We do local deliveries or we can ship anywhere you like.</p>
             </div>
           </div>
 

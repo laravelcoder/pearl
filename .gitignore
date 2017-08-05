@@ -9,3 +9,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+/.ignore
+*.psd
+/*.sublime-workspace
+resources/views/layouts/partials/adams.sublime-workspace
+*-bak
+*.php-bak.php

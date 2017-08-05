@@ -43,7 +43,10 @@ Route::get('/r', function () {
     Route::get('/', ['as'=> 'homepage', 'uses' => 'HomeController@index']);
     Route::get('/about', ['as'=> 'about', 'uses' => 'HomeController@about']);
     Route::get('/contact', ['as'=> 'contact', 'uses' => 'HomeController@contact']);
+    Route::post('/contact/sendrequest', ['as'=> 'contact/sendrequest', 'uses' => 'HomeController@sendrequest']);
     Route::get('/terms', ['as'=> 'terms', 'uses' => 'HomeController@terms']);
+
+    Route::get('designs/{design}', ['as'=> 'design', 'uses' => 'DesignController@show']);
 
     Auth::routes();
 
@@ -54,7 +57,10 @@ Route::get('/r', function () {
         {
             Route::get('/', ['as'=> 'admin', 'uses' => 'HomeController@admin']);
 
-            Route::resource('designs', 'DesignController');
+
+            Route::resource('designs', 'DesignController', ['except' => ['show'], 'names' => [
+            'create' => 'designs.create'
+            ]]);
 
             Route::resource('posts', 'PostController');
 

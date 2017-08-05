@@ -13,7 +13,7 @@
 
   <!--=== Who We Are Start ===-->
 
-    {{-- @include('layouts.partials.who') --}}
+    @include('layouts.partials.who')
   <!--=== Who We Are End ===-->
 
   <!--=== Portfolio Start ===-->
@@ -23,7 +23,7 @@
 
   <!--=== Counter Start ===-->
 
-  {{-- @include('layouts.partials.counter') --}}
+  @include('layouts.partials.counter')
   <!--=== Counter End ===-->
 
   <!--=== Our Team Start ===-->
@@ -31,11 +31,14 @@
   <!--=== Our Team End ===-->
 
   <!--=== Testimonails Start ===-->
-     {{-- @include('layouts.partials.testimonails') --}}
+     @include('layouts.partials.testimonails')
   <!--=== Testimonails End ===-->
 
   <!--=== Blogs Start ===-->
+  @if (count($posts) > 1)
     @include('layouts.partials.blog')
+  @endif
+
   <!--=== Blogs End ===-->
 
 @endsection

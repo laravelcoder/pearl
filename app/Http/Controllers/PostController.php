@@ -11,14 +11,14 @@ use Flash;
 use File;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Intervention\Image\ImageManagerStatic as Image;
 
-class PostController extends AppBaseController
-{
+class PostController extends AppBaseController {
+
     /** @var  PostRepository */
     private $postRepository;
 
-    public function __construct(PostRepository $postRepo)
-    {
+    public function __construct(PostRepository $postRepo) {
         $this->postRepository = $postRepo;
     }
 
@@ -28,13 +28,12 @@ class PostController extends AppBaseController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $this->postRepository->pushCriteria(new RequestCriteria($request));
         $posts = $this->postRepository->all();
 
         return view('posts.index')
-            ->with('posts', $posts);
+                        ->with('posts', $posts);
     }
 
     /**
@@ -42,8 +41,7 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
-    {
+    public function create() {
         return view('posts.create');
     }
 
@@ -54,23 +52,51 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreatePostRequest $request)
-    {
+    public function store(CreatePostRequest $request) {
         $input = $request->all();
+        $input['view_count']=($input['view_count'])?$input['view_count']:0;
+        $input['notes']=($input['notes'])?$input['notes']:'';
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/post/thumb/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                Image::make($file)->resize(150, 150, function ($constraint) {
+                    $constraint->upsize();
+                })->save('assets/images/post/thumb/' . $photoName);
 
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\post'), $photoName);
+                $path = public_path() . '/assets/images/post/hp/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                Image::make($file)->resize(660, 440, function ($constraint) {
+                    $constraint->upsize();
+                })->save('assets/images/post/hp/' . $photoName);
 
-            $input['image'] = $photoName;
-        }
+                $path = public_path() . '/assets/images/post/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                Image::make($file)->resize(1620, 1080, function ($constraint) {
+                    $constraint->upsize();
+                })->save('assets/images/post/' . $photoName);
 
-        if ($request->banner) {
-            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();
-            $request->banner->move(public_path('assets\\images\\post\\banners'), $photoName);
+                $file->move(public_path('assets/images/post/'), $photoName);
+                $images[] = $photoName;
+            }
+            $input['image'] = serialize($images);
+        } else
+            unset($input['image']);
 
-            $input['banner'] = $photoName;
-        }
+        $images = array();
+        if ($files = $request->file('banner')) {
+            foreach ($files as $file) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/post/banners/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $file->move(public_path('assets/images/post/banners'), $photoName);
+                $images[] = $photoName;
+            }
+            $input['banner'] = serialize($images);
+        } else
+            unset($input['banner']);
 
         $post = $this->postRepository->create($input);
 
@@ -86,8 +112,7 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         $post = $this->postRepository->findWithoutFail($id);
 
         if (empty($post)) {
@@ -106,8 +131,7 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $post = $this->postRepository->findWithoutFail($id);
 
         if (empty($post)) {
@@ -127,8 +151,7 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdatePostRequest $request)
-    {
+    public function update($id, UpdatePostRequest $request) {
         $post = $this->postRepository->findWithoutFail($id);
 
         if (empty($post)) {
@@ -139,23 +162,34 @@ class PostController extends AppBaseController
 
         $data = $request->all();
         // $lawyer
-        if ($request->image) {
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('assets\\images\\post'), $photoName);
 
-            $data['image'] = $photoName;
-
+        $images = array();
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/post/thumb/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $file->move(public_path('assets/images/post/thumb/'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['image'] = serialize($images);
         } else
-
             unset($data['image']);
 
-        if ($request->banner) {
-            $photoName = time() . '.' . $request->banner->getClientOriginalExtension();
-            $request->banner->move(public_path('assets\\images\\post\\banners'), $photoName);
-
-            $data['banner'] = $photoName;
+        $images = array();
+        if ($files = $request->file('banner')) {
+            foreach ($files as $file) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/post/banners/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $file->move(public_path('assets/images/post/banners'), $photoName);
+                $images[] = $photoName;
+            }
+            $data['banner'] = serialize($images);
         } else
             unset($data['banner']);
+
+
 
 
         $post = $this->postRepository->update($data, $id);
@@ -172,8 +206,7 @@ class PostController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $post = $this->postRepository->findWithoutFail($id);
 
         if (empty($post)) {
@@ -188,4 +221,5 @@ class PostController extends AppBaseController
 
         return redirect(route('posts.index'));
     }
+
 }

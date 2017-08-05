@@ -17,7 +17,8 @@ class DesignRepository extends BaseRepository
         'short_details',
         'details',
         'price',
-        'availability'
+        'availability',
+        'button_code'
     ];
 
     /**

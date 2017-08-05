@@ -1,43 +1,31 @@
 <table class="table table-responsive" id="posts-table">
     <thead>
-        <th>Is Published</th>
-        <th>Category Id</th>
-        <th>User Id</th>
-        <th>Title</th>
-        <th>Subtitle</th>
-        <th>Content</th>
-        <th>Notes</th>
-        <th>Slug</th>
-        <th>Meta Title</th>
-        <th>Fb Title</th>
-        <th>Gp Title</th>
-        <th>Tw Title</th>
-        <th>Meta Keywords</th>
-        <th>Meta Description</th>
         <th>Image</th>
-        <th>Banner</th>
+        {{-- <th>User</th> --}}
+        <th>Title</th>
+        <th>Category</th>
+        {{-- <th>Slug</th> --}}
+
         <th>View Count</th>
         <th colspan="3">Action</th>
+        <th>Is Published</th>
     </thead>
     <tbody>
     @foreach($posts as $post)
         <tr>
-            <td>{!! $post->is_published !!}</td>
+            
+            <td>
+    <img src="{!! url('assets/images/post/thumb/'.unserialize($post->image)[0]) !!}" width="100px"/>
+    </td>
+            {{-- <td>{!! $post->user_id !!}</td> --}}
+            <td>
+                <a href="{!! route('posts.edit', [$post->id]) !!}" class=''>
+                    {!! $post->title !!}
+                </a>
+            </td>
             <td>{!! $post->category_id !!}</td>
-            <td>{!! $post->user_id !!}</td>
-            <td>{!! $post->title !!}</td>
-            <td>{!! $post->subtitle !!}</td>
-            <td>{!! $post->content !!}</td>
-            <td>{!! $post->notes !!}</td>
-            <td>{!! $post->slug !!}</td>
-            <td>{!! $post->meta_title !!}</td>
-            <td>{!! $post->fb_title !!}</td>
-            <td>{!! $post->gp_title !!}</td>
-            <td>{!! $post->tw_title !!}</td>
-            <td>{!! $post->meta_keywords !!}</td>
-            <td>{!! $post->meta_description !!}</td>
-            <td>{!! $post->image !!}</td>
-            <td>{!! $post->banner !!}</td>
+            {{-- <td>{!! $post->slug !!}</td> --}}
+
             <td>{!! $post->view_count !!}</td>
             <td>
                 {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
@@ -48,6 +36,7 @@
                 </div>
                 {!! Form::close() !!}
             </td>
+            <td>{!! $post->is_published !!}</td>
         </tr>
     @endforeach
     </tbody>
