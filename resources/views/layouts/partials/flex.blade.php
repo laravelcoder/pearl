@@ -3,13 +3,13 @@
       <ul class="slides">
         <!--=== SLIDE 1 ===-->
         <li>
-          <div class="slide-img" style="background:url({!! asset('assets/images/slides/home-bg-1.jpg') !!}) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
+          <div class="slide-img" style="background:url({!! asset('assets/images/slides/home-bg-4.jpg') !!}) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
           <div class="hero-text-wrap">
             <div class="hero-text white-color">
               <div class="container text-center">
                 <h2 class="white-color text-uppercase font-400 letter-spacing-5">Experience</h2>
                 <h1 class="white-color text-uppercase font-700">The Wonder</h1>
-                <h3 class="white-color font-400">We put a premium on the fun you will have with one or our parties.</h3>
+                <h3 class="white-color font-400">We put a premium on the fun you will have with one of our parties.</h3>
             {{--     <p class="text-center mt-30">
                 <a class="btn btn-white btn-circle btn-animate"><span>Start a Project <i class="mdi mdi-arrow-right"></i></span></a>
                 </p> --}}
@@ -19,7 +19,7 @@
         </li>
         <!--=== SLIDE 2 ===-->
         <li>
-          <div class="slide-img" style="background:url(assets/images/slides/home-bg-2.jpg) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
+          <div class="slide-img" style="background:url(assets/images/slides/home-bg-5.jpg) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
           <div class="hero-text-wrap gradient-overlay-bg">
             <div class="hero-text">
               <div class="container text-center">
@@ -32,7 +32,7 @@
         </li>
         <!--=== SLIDE 3 ===-->
         <li>
-          <div class="slide-img" style="background:url(assets/images/slides/home-bg-3.jpg) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
+          <div class="slide-img" style="background:url(assets/images/slides/home-bg-6.jpg) center center / cover scroll no-repeat;" data-stellar-background-ratio="0.2"></div>
           <div class="hero-text-wrap">
             <div class="hero-text">
               <div class="container text-center">

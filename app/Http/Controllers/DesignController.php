@@ -20,7 +20,7 @@
 
         public function __construct(DesignRepository $designRepo) {
             $this->designRepository = $designRepo;
-            $this->middleware('auth');
+            $this->middleware('auth', ['except' => 'show']);
         }
 
         /**
