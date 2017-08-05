@@ -8,33 +8,47 @@
                 <div class="col-md-6">
                     <div class="product-slider flexslider">
                         <ul class="slides">
-                            <li data-thumb="{!! asset('assets/images/shop/single-product-01.jpg') !!}"> <img src="{!! asset('assets/images/shop/single-product-01.jpg') !!}" class="img-responsive" alt="single-product" /> </li>
-                            <li data-thumb="{!! asset('assets/images/shop/single-product-02.jpg') !!}"> <img src="{!! asset('assets/images/shop/single-product-02.jpg') !!}" class="img-responsive" alt="single-product" /> </li>
-                            <li data-thumb="{!! asset('assets/images/shop/single-product-03.jpg') !!}"> <img src="{!! asset('assets/images/shop/single-product-03.jpg') !!}" class="img-responsive" alt="single-product" /> </li>
-                            <li data-thumb="{!! asset('assets/images/shop/single-product-04.jpg') !!}"> <img src="{!! asset('assets/images/shop/single-product-04.jpg') !!}" class="img-responsive" alt="single-product" /> </li>
+                            <li data-thumb="{!! asset('assets/images/designs/thumb/'. unserialize($design->image)[0]) !!}">
+                                <img src="{!! asset('assets/images/designs/single/'. unserialize($design->image)[0]) !!}" class="img-responsive" alt="single-product" />
+                            </li>
+
+                            {{-- @if($design->image, 'id' == 1): --}}
+                            <li data-thumb="{!! asset('assets/images/designs/thumb/'. unserialize($design->image)[1]) !!}">
+                                <img src="{!! asset('assets/images/designs/single/'. unserialize($design->image)[1]) !!}" class="img-responsive" alt="single-product" />
+                            </li>
+                            {{-- @endif --}}
+
+{{--                             @if($design->image[2]):
+                            <li data-thumb="{!! asset('assets/images/designs/single/'. unserialize($design->image)[2]) !!}">
+                                <img src="{!! asset('assets/images/designs/single/'. unserialize($design->image)[2]) !!}" class="img-responsive" alt="single-product" />
+                            </li>
+                            @endif --}}
+
+{{--                             @if($design->image[3]):
+                            <li data-thumb="{!! asset('assets/images/designs/single/'. unserialize($design->image)[3]) !!}">
+                                <img src="{!! asset('assets/images/designs/single/'. unserialize($design->image)[3]) !!}" class="img-responsive" alt="single-product" />
+                            </li>
+                            @endif --}}
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h2>Black Half Sleeve T-Shirt</h2>
-                    <h3 class="grey">$59.99 <span class="old-price font-18px">$79.99</span></h3>
+                    <h2>{!! $design->name !!}</h2>
+                    <h3 class="grey">${!! $design->price !!}</h3>
                     <div class="single-product-des">
                         <h5>Product Desription</h5>
-                        <p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Praesent vitae odio ullamcorper, accumsan felis vitae, commodo diam. Proin facilisis iaculis ipsum, non consectetur urna egestas nec. Nulla facilisi. Aliquam erat volutpat. Nam aliquet tellus nec augue auctor maximus. </p>
+                        {!! $design->short_details !!}
                     </div>
+
+                    @if($design->button_code):
                     <div class="single-product-qty">
-                        <form>
-                            <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
-                            <span class="input-group-btn"><a href="#" class="btn btn-dark">ADD TO CART <i class="mdi mdi-shopping"></i></a></span>
-                        </form>
+                        {!! $design->button_code !!}
+
                     </div>
+                    @endif
+
                     <div class="product-fabric-detail">
-                        <h5>Product Fabric</h5>
-                        <p>100% Cotton Single jersey
-                            Prewashed to impart a softer texture</p>
-                        <h5>WashCare Instructions</h5>
-                        <p>Machine wash cold Do not bleach or wash with chlorine based detergent or water Wash/dry inside out Do not iron directly on prints Dry promptly in shade
-                            Dry on a flat surface as hanging may cause measurement variations Product color may vary little due to photography Wash with similar clothes.</p>
+                        {!! $design->details !!}
                     </div>
                 </div>
             </div>
