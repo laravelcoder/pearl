@@ -221,6 +221,33 @@ td .media-body {width: auto; }
       maxHeight: null,             // set maximum height of editor
       focus: true                  // set focus to editable area after initializing summernote
     });
+
+            $("input#title").keyup(function(){
+                var Text = $(this).val();
+                $("input#fb_title").val(Text) + ' on FaceBook.';
+                $('input#gp_title').val(Text) + ' on GooglePlus.');
+                $('input#tw_title').val(Text) + ' on Twitter.');
+                Text = Text.toLowerCase();
+                Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+                $("input#slug").val(Text);
+            });
+
+    // $("input#fb_title").blur(function() {
+    //     $('input#fb_title').val($('input#fb_title').val() + ' on FaceBook.');
+    // });
+    // $("input#gp_title").blur(function() {
+    //     $('input#gp_title').val($('input#gp_title').val() + ' on GooglePlus.');
+    // });
+    // $("input#tw_title").blur(function() {
+    //     $('input#tw_title').val($('input#tw_title').val() + ' on Twitter. ');
+    // });
+
+    // $("input#title").keyup(function(){
+    //     var Text = $(this).val();
+    //     Text = Text.toLowerCase();
+    //     Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+    //     $("input#slug").val(Text);
+    // });
 </script>
 
     @yield('scripts')
