@@ -13,9 +13,9 @@
                             </li>
 
                             {{-- @if($design->image, 'id' == 1): --}}
-                            <li data-thumb="{!! asset('assets/images/designs/thumb/'. unserialize($design->image)[1]) !!}">
+                     {{--        <li data-thumb="{!! asset('assets/images/designs/thumb/'. unserialize($design->image)[1]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. unserialize($design->image)[1]) !!}" class="img-responsive" alt="single-product" />
-                            </li>
+                            </li> --}}
                             {{-- @endif --}}
 
 {{--                             @if($design->image[2]):
@@ -41,7 +41,7 @@
                         {!! $design->short_details !!}
                     </div>
 
-                    @if($design->button_code):
+                    @if($design->button_code)
                     <div class="single-product-qty">
                         {!! $design->button_code !!}
 

@@ -14,6 +14,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/css/fileinput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css">
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -178,7 +179,7 @@ td .media-body {width: auto; }
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
-    {{-- <script src="{!! asset('/assets/js/repeatable-fields.js') !!}"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
 <script>
 
     $("#banner").fileinput({
@@ -229,15 +230,23 @@ td .media-body {width: auto; }
       focus: true                  // set focus to editable area after initializing summernote
     });
 
-      $("input#title").keyup(function(){
+            $("input#name").keyup(function(){
                 var Text = $(this).val();
-                $("input#fb_title").val(Text) + ' on FaceBook.';
-                $('input#gp_title').val(Text) + ' on GooglePlus.');
-                $('input#tw_title').val(Text) + ' on Twitter.');
                 Text = Text.toLowerCase();
                 Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
                 $("input#slug").val(Text);
             });
+
+            $("input#title").keyup(function(){
+                var Text = $(this).val();
+                $("input#fb_title").val(Text) + ' on FaceBook.';
+                $('input#gp_title').val(Text) + ' on GooglePlus.';
+                $('input#tw_title').val(Text) + ' on Twitter.';
+                Text = Text.toLowerCase();
+                Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+                $("input#slug").val(Text);
+            });
+
 
     // $("input#fb_title").blur(function() {
     //     $('input#fb_title').val($('input#fb_title').val() + ' on FaceBook.');
@@ -261,3 +270,4 @@ td .media-body {width: auto; }
 
 </body>
 </html>
+
