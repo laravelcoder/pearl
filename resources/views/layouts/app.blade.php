@@ -68,6 +68,7 @@ td .media-body {width: auto; }
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{!! Auth::user()->name !!}</span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">

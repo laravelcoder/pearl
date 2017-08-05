@@ -11,6 +11,7 @@
             @else
                 <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
             @endif
+
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
