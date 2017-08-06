@@ -1,28 +1,35 @@
 <!-- Is Published Field -->
-<div class="form-group col-sm-4">
-    {!! Form::label('is_published', 'Published:') !!}
+<div class="col-sm-1">
+
+</div>
+
+<div class="form-group col-sm-2 checkbox">
+    {{-- {!! Form::label('is_published', 'Published:') !!} --}}
     <label class="checkbox-inline">
-        {!! Form::hidden('is_published', false) !!}
-        {!! Form::checkbox('is_published', '1', null) !!} 1
-    </label>
+       {!! Form::checkbox('is_published', '1', true, ['data-toggle' => 'toggle','data-on'=>'Published   ', 'data-off'=>'  Un-Published', 'data-onstyle'=>'success', 'data-offstyle'=>'danger', 'data-width'=> '150']) !!}
+   </label>
 </div>
 
 <!-- Category Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('category_id', 'Category:') !!}
-    {!! Form::number('category_id', null, ['class' => 'form-control']) !!}
+    {{--{!! Form::select('category_id', $categories, ['class' => 'form-control']) !!}--}}
+    {!! Form::select('category', $categories, null, ['class' => 'form-control']) !!}
+    {{-- {!! Form::select('category', (['0' => 'Select a Category'] + $categories), null, ['class' => 'form-control']) !!}  --}}
+
 </div>
 
 <!-- User Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('user_id', 'Author:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('user_id', $users, ['class' => 'form-control']) !!}
+
 </div>
 
 <!-- Title Field -->
 <div class="form-group col-sm-10">
     {!! Form::label('title', 'Title:') !!}
-    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+    {!! Form::text('title', null, ['id' => 'title', 'class' => 'form-control']) !!}
 </div>
 
 <!-- Subtitle Field -->
@@ -40,7 +47,7 @@
 <!-- Content Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('content', 'Content:') !!}
-    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control summernote']) !!}
 </div>
 
 <!-- Meta Title Field -->
@@ -52,19 +59,19 @@
 <!-- Fb Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fb_title', 'Fb Title:') !!}
-    {!! Form::text('fb_title', null, ['class' => 'form-control']) !!}
+    {!! Form::text('fb_title', null, ['id' => 'fb_title', 'class' => 'form-control']) !!}
 </div>
 
 <!-- Gp Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('gp_title', 'Gp Title:') !!}
-    {!! Form::text('gp_title', null, ['class' => 'form-control']) !!}
+    {!! Form::text('gp_title', null, ['id' => 'gp_title', 'class' => 'form-control']) !!}
 </div>
 
 <!-- Tw Title Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tw_title', 'Tw Title:') !!}
-    {!! Form::text('tw_title', null, ['class' => 'form-control']) !!}
+    {!! Form::text('tw_title', null, ['id' => 'tw_title', 'class' => 'form-control']) !!}
 </div>
 
 <!-- Meta Keywords Field -->

@@ -29,6 +29,7 @@ class HomeController extends AppBaseController
 
     }
 
+
     /**
      * Show the application dashboard.
      *
@@ -61,6 +62,7 @@ class HomeController extends AppBaseController
     {
         return view('terms');
     }
+
     public function sendrequest(Request $request) {
         $your_email = 'contact@orderpearlessence.com';
 

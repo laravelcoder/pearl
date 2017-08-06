@@ -20,6 +20,7 @@
 
         public function __construct(DesignRepository $designRepo) {
             $this->designRepository = $designRepo;
+            $this->middleware('auth', ['except' => 'show']);
         }
 
         /**
@@ -58,7 +59,7 @@
             if ($files = $request->file('image')) {
                 foreach ($files as $file) {
                     $photoName = $file->getClientOriginalName();
-                    //$photoName = $name . '.' . $file->getClientOriginalExtension();
+
                     $path = public_path().'/assets/images/designs/thumb/';
                     File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(150, 150,function ($constraint) {
@@ -162,25 +163,25 @@
             if ($files = $request->file('image')) {
                 foreach ($files as $file) {
                     $photoName = $file->getClientOriginalName();
-                    // $photoName = $name . '.' . $file->getClientOriginalExtension();
+
                     $path = public_path().'/assets/images/designs/thumb/';
                     File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(150, 150,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/thumb/' . $photoName);
-                    
+
                     $path = public_path().'/assets/images/designs/hp/';
                     File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(660, 440,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/hp/' . $photoName);
-                    
+
                     $path = public_path().'/assets/images/designs/single/';
                     File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(870, 1170,function ($constraint) {
                         $constraint->upsize();
                     })->save('assets/images/designs/single/' . $photoName);
-                    
+
                     $path = public_path().'/assets/images/designs/upsell/';
                     File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                     Image::make($file)->resize(800, 900,function ($constraint) {
@@ -218,6 +219,12 @@
 
                 return redirect(route('designs.index'));
             }
+
+            // File::delete(public_path() . 'assets/images/designs/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/hp/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/upsell/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/single/' . $design->image);
+            // File::delete(public_path() . 'assets/images/designs/thumb/' . $design->image);
 
             $this->designRepository->delete($id);
 

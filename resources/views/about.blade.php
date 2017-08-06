@@ -8,6 +8,7 @@
       <div class="page-title text-center">
         <h1>About Us</h1>
         <h4 class="text-uppercase mt-30 white-color"></h4>
+        <p>content is comming soon for this spot</p>
       </div>
     </div>
   </section>

@@ -2,9 +2,9 @@
     <thead>
         <th>Id</th>
         <th>Image</th>
-        <th>Name</th>
+        <th colspan="2">Name</th>
         <th>Price</th>
-        <th colspan="3">Action</th>
+        <th>Action</th>
          <th>Published</th>
     </thead>
     <tbody>
@@ -12,30 +12,36 @@
         <tr>
             <td class="media-middle">{!! $design->id !!}</td>
 
-            <td class="media-left">
-            @if($design->image)
-            
-            <img src="{!! url('assets\images\designs\thumb') !!}/{!! unserialize($design->image)[0] !!}" />
-           
-            @else
-            <img src="http://via.placeholder.com/150x150" />
-            @endif
+            <td class="media-left" width="150px">
+                @if($design->image)
+                <img src="{!! url('assets\images\designs\thumb') !!}/{!! unserialize($design->image)[0] !!}" />
+                @else
+                <img src="http://via.placeholder.com/150x150" />
+                @endif
             </td>
-            <td class="media-middle">{!! $design->name !!}</td>
+            <td class="media-middle" colspan="2" width="250px"><a href="{!! route('designs.edit', [$design->id]) !!}" class=''>{!! $design->name !!}</a></td>
             <td class="media-middle">{!! $design->price !!}</td>
 
 
             <td class="media-middle">
                 {!! Form::open(['route' => ['designs.destroy', $design->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('designs.show', [$design->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('designs.edit', [$design->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a target="_blank" href="{!! route('design', [$design->id]) !!}" class='btn btn-default btn-xs'>
+                    <i class="fa fa-lg fa-eye"></i></a>
+                    <a href="{!! route('designs.edit', [$design->id]) !!}" class='btn btn-default btn-xs'>
+                    <i class="fa fa-pencil fa-lg"></i></a>
+                    {!! Form::button('<i class="fa fa-trash-o  fa-lg "></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>
+            {{-- <td>{!! $design->published !!}</td> --}}
+            <td class="  media-middle">
+                {{-- <a href="#" id="{!! $design->id !!}" class="publish"> --}}
+                    {!! ($design->published) ? '<i class="fa fa-check-circle-o fa-lg text-success" style="color:green"></i>' : '<i class="fa fa-times-circle fa-lg text-danger" style="color:red"></i>'  !!}
+                {{-- </a> --}}
+            </td>
         </tr>
-        <td>{!! $design->published !!}</td>
+
     @endforeach
     </tbody>
 </table>
