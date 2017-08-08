@@ -201,7 +201,15 @@ td .media-body {width: auto; }
     $("#image").fileinput({
         uploadUrl: '#', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['jpg', 'png', 'gif'],
+        
         overwriteInitial: false,
+        initialPreview: 
+        jQuery.parseJSON( $("#image").attr('data-src'))
+        ,
+        initialPreviewConfig: 
+         jQuery.parseJSON( $("#image").attr('data-config'))
+        ,
+        initialPreviewAsData: true, // defaults markup  
         maxFileSize: 100000,
         maxFilesNum: 4,
         //allowedFileTypes: ['image', 'video', 'flash'],

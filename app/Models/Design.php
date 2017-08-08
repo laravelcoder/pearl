@@ -56,6 +56,8 @@ class Design extends Model
     public static $rules = [
         
     ];
-
+    public function getImageAttribute($image) {
+        return unserialize($image);
+    }
     
 }
