@@ -26,6 +26,9 @@ td .media-body {width: auto; }
  @media (min-width: 768px) {
   .media-left img {max-width: 120px; margin-right: 20px; }
 }
+.nav>li>a>img {
+    max-width: 30px;
+}
     </style>
 
 
@@ -45,7 +48,11 @@ td .media-body {width: auto; }
             </a>
 
             <!-- Header Navbar -->
+        @if (Request::path() == '/')
             <nav class="navbar navbar-static-top" role="navigation">
+        @else
+            <nav class="navbar navbar-default navbar-fixed white bootsnav on no-full" role="navigation">
+        @endif
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -58,18 +65,26 @@ td .media-body {width: auto; }
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                     class="user-image" alt="User Image"/>
+                                @if(Gravatar::exists(Auth::user()->email)):
+                                    <img src="{{ Gravatar::src(Auth::user()->email, 80) }}" class="img-circle" alt="User Image"/>
+                                @else
+                                    <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
+                                @endif
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                 <span class="hidden-xs">{!! Auth::user()->name !!}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
-                                         class="img-circle" alt="User Image"/>
+                                    @if(Gravatar::exists(Auth::user()->email)):
+                                        <img src="{{ Gravatar::src(Auth::user()->email) }}" class="img-circle" alt="User Image"/>
+                                    @else
+                                        <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
+                                    @endif
                                     <p>
                                         {!! Auth::user()->name !!}
+                                        {{-- {!! Auth::user()->email !!} --}}
+
                                         <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
@@ -169,7 +184,6 @@ td .media-body {width: auto; }
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
-    {{-- <script src="{!! asset('/assets/js/repeatable-fields.js') !!}"></script> --}}
 <script>
 
     $("#banner").fileinput({
@@ -178,7 +192,6 @@ td .media-body {width: auto; }
         overwriteInitial: false,
         maxFileSize: 100000,
         maxFilesNum: 4,
-        showUpload: false,
         //allowedFileTypes: ['image', 'video', 'flash'],
         slugCallback: function (filename) {
             return filename.replace('(', '_').replace(']', '_');
@@ -188,10 +201,17 @@ td .media-body {width: auto; }
     $("#image").fileinput({
         uploadUrl: '#', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['jpg', 'png', 'gif'],
+        
         overwriteInitial: false,
+        initialPreview: 
+        jQuery.parseJSON( $("#image").attr('data-src'))
+        ,
+        initialPreviewConfig: 
+         jQuery.parseJSON( $("#image").attr('data-config'))
+        ,
+        initialPreviewAsData: true, // defaults markup  
         maxFileSize: 100000,
         maxFilesNum: 4,
-        showUpload: false,
         //allowedFileTypes: ['image', 'video', 'flash'],
         slugCallback: function (filename) {
             return filename.replace('(', '_').replace(']', '_');
@@ -222,15 +242,23 @@ td .media-body {width: auto; }
       focus: true                  // set focus to editable area after initializing summernote
     });
 
-            $("input#title").keyup(function(){
+            $("input#name").keyup(function(){
                 var Text = $(this).val();
-                $("input#fb_title").val(Text) + ' on FaceBook.';
-                $('input#gp_title').val(Text) + ' on GooglePlus.');
-                $('input#tw_title').val(Text) + ' on Twitter.');
                 Text = Text.toLowerCase();
                 Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
                 $("input#slug").val(Text);
             });
+
+            $("input#title").keyup(function(){
+                var Text = $(this).val();
+                $("input#fb_title").val(Text) + ' on FaceBook.';
+                $('input#gp_title').val(Text) + ' on GooglePlus.';
+                $('input#tw_title').val(Text) + ' on Twitter.';
+                Text = Text.toLowerCase();
+                Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+                $("input#slug").val(Text);
+            });
+
 
     // $("input#fb_title").blur(function() {
     //     $('input#fb_title').val($('input#fb_title').val() + ' on FaceBook.');
@@ -254,3 +282,4 @@ td .media-body {width: auto; }
 
 </body>
 </html>
+

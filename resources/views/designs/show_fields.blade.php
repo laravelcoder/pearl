@@ -26,7 +26,7 @@
 <div class="form-group">
     {!! Form::label('image', 'Image:') !!}
     <p>
-    @foreach(unserialize($design->image) as $img)
+    @foreach($design->image as $img)
     <img src="{!! url('assets/images/designs/thumb/'.$img) !!}" width="100px"/>
     @endforeach
     </p>
