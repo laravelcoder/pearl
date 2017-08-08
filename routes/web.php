@@ -56,6 +56,7 @@ Route::get('/r', function () {
         Route::prefix('admin')->group(function ()
         {
             Route::get('/', ['as'=> 'admin', 'uses' => 'HomeController@admin']);
+            Route::post('designs/{design}/delete_image/{image}', ['as'=> 'design.delete_image', 'uses' => 'DesignController@delete_image']);
 
 
             Route::resource('designs', 'DesignController', ['except' => ['show'], 'names' => [
