@@ -20,9 +20,8 @@
     {!! Form::text('slug', null, ['class' => 'form-control']) !!}
     <small>always add a slug or url will not work</small>
 </div>
-
 <div class="form-group col-sm-10">
-    <input id="image" type="file" name="image[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="1">
+    <input id="image" type="file" name="image[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="1" data-src='{!!@$image!!}' data-config='{!!@$image_config!!}' >
 </div>
 
 

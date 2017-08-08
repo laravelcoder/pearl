@@ -14,7 +14,7 @@
 
             <td class="media-left" width="150px">
                 @if($design->image)
-                <img src="{!! url('assets\images\designs\thumb') !!}/{!! unserialize($design->image)[0] !!}" />
+                <img src="{!! url('assets\images\designs\thumb') !!}/{!! $design->image[0] !!}" />
                 @else
                 <img src="http://via.placeholder.com/150x150" />
                 @endif
