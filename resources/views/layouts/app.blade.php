@@ -185,11 +185,18 @@ td .media-body {width: auto; }
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
 <script>
-
+    if($("#banner").length){
     $("#banner").fileinput({
         uploadUrl: '#', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['jpg', 'png', 'gif'],
         overwriteInitial: false,
+         initialPreview: 
+        jQuery.parseJSON( $("#banner").attr('data-src'))
+        ,
+        initialPreviewConfig: 
+         jQuery.parseJSON( $("#banner").attr('data-config'))
+        ,
+        initialPreviewAsData: true, // defaults markup  
         maxFileSize: 100000,
         maxFilesNum: 4,
         //allowedFileTypes: ['image', 'video', 'flash'],
@@ -197,7 +204,8 @@ td .media-body {width: auto; }
             return filename.replace('(', '_').replace(']', '_');
         }
     });
-
+    }
+    if($("#image").length){
     $("#image").fileinput({
         uploadUrl: '#', // you must set a valid URL here else you will get an error
         allowedFileExtensions: ['jpg', 'png', 'gif'],
@@ -217,6 +225,7 @@ td .media-body {width: auto; }
             return filename.replace('(', '_').replace(']', '_');
         }
     });
+    }
     /*
      $(".file").on('fileselect', function(event, n, l) {
      alert('File Selected. Name: ' + l + ', Num: ' + n);

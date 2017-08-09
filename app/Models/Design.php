@@ -57,7 +57,7 @@ class Design extends Model
         
     ];
     public function getImageAttribute($image) {
-        return unserialize($image);
+        return array_values(unserialize($image));
     }
     
 }
