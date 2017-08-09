@@ -152,16 +152,34 @@ class PostController extends AppBaseController {
      *
      * @return Response
      */
-    public function edit($id) {
+    public function edit($id,Category $categories) {
         $post = $this->postRepository->findWithoutFail($id);
-
+        $users = User::pluck('name', 'id');
+          $categories = ['0' => 'Select a Category'] + collect($categories)->toArray();
         if (empty($post)) {
             Flash::error('Post not found');
 
             return redirect(route('posts.index'));
         }
+        $post_image = '';
+        $config = '';
+        foreach (($post['image']) as $di):
+            $post_image.='"' . url('assets/images/post/thumb/' . $di) . '",';
+            $config.='{"caption":"' . url('assets/images/post/thumb/' . $di) . '","url":"delete_image/' . $di . '?_token=' . csrf_token() . '"},';
+        endforeach;
+        $image = '[' . rtrim($post_image, ',') . ']';
+        $image_config = '[' . rtrim($config, ',') . ']';
+        
+        $post_banner = '';
+        $config = '';
+        foreach (($post['banner']) as $di):
+            $post_banner.='"' . url('assets/images/post/banners/' . $di) . '",';
+            $config.='{"caption":"' . url('assets/images/post/banners/' . $di) . '","url":"delete_banner/' . $di . '?_token=' . csrf_token() . '"},';
+        endforeach;
+        $banner = '[' . rtrim($post_banner, ',') . ']';
+        $banner_config = '[' . rtrim($config, ',') . ']';
 
-        return view('posts.edit')->with('post', $post);
+        return view('posts.edit',compact('post', 'categories','users','image','image_config','banner','banner_config'));
     }
 
     /**
@@ -193,6 +211,7 @@ class PostController extends AppBaseController {
                 $file->move(public_path('assets/images/post/thumb/'), $photoName);
                 $images[] = $photoName;
             }
+            $images = array_merge($images, $post->image);
             $data['image'] = serialize($images);
         } else
             unset($data['image']);
@@ -206,6 +225,7 @@ class PostController extends AppBaseController {
                 $file->move(public_path('assets/images/post/banners'), $photoName);
                 $images[] = $photoName;
             }
+            $images = array_merge($images, $post->banner);
             $data['banner'] = serialize($images);
         } else
             unset($data['banner']);
@@ -241,6 +261,25 @@ class PostController extends AppBaseController {
         Flash::success('Post deleted successfully.');
 
         return redirect(route('posts.index'));
+    }
+    
+     public function delete_image($id, $image) {
+        $design = $this->postRepository->findWithoutFail($id);
+        $old_image = $design->image;
+        if (array_search($image, $old_image) !== false)
+            unset($old_image[array_search($image, $old_image)]);
+        $data['image'] = serialize($old_image);
+        $design = $this->postRepository->update($data, $id);
+        return json_encode(1);
+    }
+     public function delete_banner($id, $image) {
+        $design = $this->postRepository->findWithoutFail($id);
+        $old_image = $design->banner;
+        if (array_search($image, $old_image) !== false)
+            unset($old_image[array_search($image, $old_image)]);
+        $data['banner'] = serialize($old_image);
+        $design = $this->postRepository->update($data, $id);
+        return json_encode(1);
     }
 
 }

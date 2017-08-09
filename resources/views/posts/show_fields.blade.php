@@ -92,7 +92,7 @@
 <div class="form-group">
     {!! Form::label('image', 'Image:') !!}
      <p>
-    @foreach(unserialize($post->image) as $img)
+    @foreach(($post->image) as $img)
     <img src="{!! url('assets/images/post/thumb/'.$img) !!}" width="100px"/>
     @endforeach
     </p>
@@ -102,7 +102,7 @@
 <div class="form-group">
     {!! Form::label('banner', 'Banner:') !!}
     <p>
-    @foreach(unserialize($post->banner) as $img)
+    @foreach(($post->banner) as $img)
     <img src="{!! url('assets/images/post/banners/'.$img) !!}" width="100px"/>
     @endforeach
     </p>
