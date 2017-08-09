@@ -57,6 +57,9 @@ Route::get('/r', function () {
         {
             Route::get('/', ['as'=> 'admin', 'uses' => 'HomeController@admin']);
             Route::post('designs/{design}/delete_image/{image}', ['as'=> 'design.delete_image', 'uses' => 'DesignController@delete_image']);
+            Route::post('posts/{post}/delete_image/{image}', ['as'=> 'post.delete_image', 'uses' => 'PostController@delete_image']);
+            Route::post('posts/{post}/delete_banner/{image}', ['as'=> 'post.delete_banner', 'uses' => 'PostController@delete_banner']);
+            Route::post('categories/{category}/delete_image/{image}', ['as'=> 'categories.delete_image', 'uses' => 'DCategoryController@delete_image']);
 
 
             Route::resource('designs', 'DesignController', ['except' => ['show'], 'names' => [
