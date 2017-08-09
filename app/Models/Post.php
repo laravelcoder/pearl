@@ -120,6 +120,12 @@ class Post extends Model
     // {
     //     return $query->where('status', 1);
     // }
+    public function getImageAttribute($image) {
+        return array_values(unserialize($image));
+    }
+    public function getBannerAttribute($banner) {
+        return array_values(unserialize($banner));
+    }
 
 
 }

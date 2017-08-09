@@ -15,7 +15,7 @@
         <tr>
             
             <td>
-    <img src="{!! url('assets/images/post/thumb/'.unserialize($post->image)[0]) !!}" width="100px"/>
+    <img src="{!! url('assets/images/post/thumb/'.$post->image[0]) !!}" width="100px"/>
     </td>
             {{-- <td>{!! $post->user_id !!}</td> --}}
             <td>
