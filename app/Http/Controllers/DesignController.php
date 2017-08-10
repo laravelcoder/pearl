@@ -145,15 +145,20 @@ class DesignController extends AppBaseController {
         endforeach;
         $image = '[' . rtrim($design_image, ',') . ']';
         $image_config = '[' . rtrim($config, ',') . ']';
-        
+
         return view('designs.edit')->with('design', $design)->with('image', $image)->with('image_config', $image_config);
     }
 
     public function delete_image($id, $image) {
         $design = $this->designRepository->findWithoutFail($id);
         $old_image = $design->image;
-        if (array_search($image, $old_image) !== false)
+        if (array_search($image, $old_image) !== false) {
+            File::delete(public_path() . '/assets/images/designs/hp/' . $image);
+            File::delete(public_path() . '/assets/images/designs/upsell/' . $image);
+            File::delete(public_path() . '/assets/images/designs/single/' . $image);
+            File::delete(public_path() . '/assets/images/designs/thumb/' . $image);
             unset($old_image[array_search($image, $old_image)]);
+        }
         $data['image'] = serialize($old_image);
         $design = $this->designRepository->update($data, $id);
         return json_encode(1);
@@ -240,10 +245,12 @@ class DesignController extends AppBaseController {
         }
 
         // File::delete(public_path() . 'assets/images/designs/' . $design->image);
-        // File::delete(public_path() . 'assets/images/designs/hp/' . $design->image);
-        // File::delete(public_path() . 'assets/images/designs/upsell/' . $design->image);
-        // File::delete(public_path() . 'assets/images/designs/single/' . $design->image);
-        // File::delete(public_path() . 'assets/images/designs/thumb/' . $design->image);
+        foreach ($design->image as $image):
+            File::delete(public_path() . '/assets/images/designs/hp/' . $image);
+            File::delete(public_path() . '/assets/images/designs/upsell/' . $image);
+            File::delete(public_path() . '/assets/images/designs/single/' . $image);
+            File::delete(public_path() . '/assets/images/designs/thumb/' . $image);
+        endforeach;
 
         $this->designRepository->delete($id);
 
