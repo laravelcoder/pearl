@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Pearl Essence Home Parties</title>
-<link rel="shortcut icon" href="{!! asset('assets/images/favicon.ico') !!}">
-<link rel="stylesheet" href="{!! asset('assets/css/master.css') !!}">
-<link rel="stylesheet" href="{!! asset('assets/css/responsive.css') !!}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pearl Essence Home Parties</title>
+  <link rel="shortcut icon" href="{!! asset('assets/images/favicon.ico') !!}">
+  <link rel="stylesheet" href="{!! asset('assets/css/master.css') !!}">
+  <link rel="stylesheet" href="{!! asset('assets/css/responsive.css') !!}">
 
   @yield('css')
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-104380149-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  @yield('jsonld')
+
+
 </head>
 <body>
 
