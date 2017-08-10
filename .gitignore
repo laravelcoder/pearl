@@ -15,3 +15,5 @@ npm-debug.log
 resources/views/layouts/partials/adams.sublime-workspace
 *-bak
 *.php-bak.php
+*.rar
+*.zip
