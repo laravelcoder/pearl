@@ -8,6 +8,7 @@ use App\Repositories\CategoryRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Str;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -44,6 +45,7 @@ class CategoryController extends AppBaseController
      */
     public function create()
     {
+
         return view('categories.create');
     }
 
