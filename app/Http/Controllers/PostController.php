@@ -255,7 +255,14 @@ class PostController extends AppBaseController {
 
             return redirect(route('posts.index'));
         }
-
+        foreach ($post->image as $image):
+            File::delete(public_path() . '/assets/images/post/hp/' . $image);
+            File::delete(public_path() . '/assets/images/post/' . $image);
+            File::delete(public_path() . '/assets/images/post/thumb/' . $image);
+        endforeach;
+         foreach ($post->banner as $image):
+            File::delete(public_path() . '/assets/images/post/banners/' . $image);
+        endforeach;
         $this->postRepository->delete($id);
 
         Flash::success('Post deleted successfully.');
@@ -264,21 +271,27 @@ class PostController extends AppBaseController {
     }
     
      public function delete_image($id, $image) {
-        $design = $this->postRepository->findWithoutFail($id);
-        $old_image = $design->image;
-        if (array_search($image, $old_image) !== false)
+        $post = $this->postRepository->findWithoutFail($id);
+        $old_image = $post->image;
+        if (array_search($image, $old_image) !== false){
+            File::delete(public_path() . '/assets/images/post/hp/' . $image);
+            File::delete(public_path() . '/assets/images/post/' . $image);
+            File::delete(public_path() . '/assets/images/post/thumb/' . $image);
             unset($old_image[array_search($image, $old_image)]);
+        }
         $data['image'] = serialize($old_image);
-        $design = $this->postRepository->update($data, $id);
+        $post = $this->postRepository->update($data, $id);
         return json_encode(1);
     }
      public function delete_banner($id, $image) {
-        $design = $this->postRepository->findWithoutFail($id);
-        $old_image = $design->banner;
-        if (array_search($image, $old_image) !== false)
+        $post = $this->postRepository->findWithoutFail($id);
+        $old_image = $post->banner;
+        if (array_search($image, $old_image) !== false){
+            File::delete(public_path() . '/assets/images/post/banners/' . $image);
             unset($old_image[array_search($image, $old_image)]);
+        }
         $data['banner'] = serialize($old_image);
-        $design = $this->postRepository->update($data, $id);
+        $post = $this->postRepository->update($data, $id);
         return json_encode(1);
     }
 
