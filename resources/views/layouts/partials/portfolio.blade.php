@@ -17,7 +17,7 @@
             <li class="portfolio-item wow fadeIn wow fadeIn" data-wow-delay="0.1s" data-groups='["all", "print", "branding"]'>
               <div class="portfolio gallery-image-hover">
                 <div class="dark-overlay"></div>
-                <img src="{!! asset('assets/images/designs/hp/'. unserialize($design->image)[0]) !!}" alt="{!! $design->name !!}" />
+                <img src="{!! asset('assets/images/designs/hp/'. $design->image[0]) !!}" alt="{!! $design->name !!}" />
 
                 <div class="portfolio-wrap">
                   <div class="portfolio-description">
@@ -25,7 +25,7 @@
                     <a href="{!! route('design', [$design->id]) !!}" class="links">More Details</a> </div>
                   <!--=== /.project-info ===-->
                   <ul class="portfolio-details">
-                    <li><a class="alpha-lightbox" href="{!! asset('assets/images/designs/'. unserialize($design->image)[0]) !!}"><i class="fa fa-search"></i></a></li>
+                    <li><a class="alpha-lightbox" href="{!! asset('assets/images/designs/'. $design->image[0]) !!}"><i class="fa fa-search"></i></a></li>
 
                     <li><a href="{!! route('design', [$design->id]) !!}"><i class="fa fa-link"></i></a></li>
                   </ul>
