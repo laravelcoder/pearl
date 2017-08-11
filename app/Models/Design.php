@@ -15,7 +15,7 @@ class Design extends Model
     use SoftDeletes;
 
     public $table = 'designs';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -24,6 +24,7 @@ class Design extends Model
         'published',
         'name',
         'slug',
+        'order_id',
         'image',
         'short_details',
         'details',
@@ -41,6 +42,7 @@ class Design extends Model
         'published' => 'boolean',
         'name' => 'string',
         'slug' => 'string',
+        'order_id' => 'string',
         'image' => 'string',
         'short_details' => 'string',
         'details' => 'string',
@@ -54,7 +56,7 @@ class Design extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     public function getImageAttribute($image) {
@@ -81,5 +83,5 @@ class Design extends Model
             }
         });
     }
-    
+
 }

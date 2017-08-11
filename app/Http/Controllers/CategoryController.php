@@ -35,6 +35,7 @@ class CategoryController extends AppBaseController
         $this->categoryRepository->pushCriteria(new RequestCriteria($request));
         $categories = $this->categoryRepository->all();
 
+
         return view('categories.index')
             ->with('categories', $categories);
     }

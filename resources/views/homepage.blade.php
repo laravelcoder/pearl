@@ -37,3 +37,8 @@
   <!--=== Blogs End ===-->
 
 @endsection
+
+
+@section('jsonld')
+
+@endsection
