@@ -3,8 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-
-    <h1>YEA YOU MADE IT</h1>
+    		<h1>Admin Section for Order Pearl Essence</h1>
     </div>
 </div>
 @endsection
