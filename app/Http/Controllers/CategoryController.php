@@ -8,6 +8,7 @@ use App\Repositories\CategoryRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use File;
 use Illuminate\Support\Str;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -59,7 +60,20 @@ class CategoryController extends AppBaseController
     public function store(CreateCategoryRequest $request)
     {
         $input = $request->all();
-
+        
+        $images = array();
+        if ($files = $request->file('banner')) {
+            foreach ($files as $file) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/category/banners/';
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $file->move(public_path('assets/images/category/banners'), $photoName);
+                $images[] = $photoName;
+            }
+            $input['banner'] = serialize($images);
+        } else
+            unset($input['banner']);
+        
         $category = $this->categoryRepository->create($input);
 
         Flash::success('Category saved successfully.');
@@ -124,8 +138,23 @@ class CategoryController extends AppBaseController
 
             return redirect(route('categories.index'));
         }
-
-        $category = $this->categoryRepository->update($request->all(), $id);
+        $data=$request->all();
+         $images = '';
+        if ($file = $request->file('banner')) {
+                $photoName = $file->getClientOriginalName();
+                $path = public_path() . '/assets/images/category/banners/';
+               
+                File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
+                $file->move(public_path('assets/images/category/banners'), $photoName);
+                $images = $photoName;
+            
+            $data['banner'] = $images;
+        } 
+        if(!$data['banner']){
+            File::delete(public_path() . '/assets/images/category/banners/' . $category->banner);
+            $data['banner']='';
+        }
+        $category = $this->categoryRepository->update($data, $id);
 
         Flash::success('Category updated successfully.');
 
