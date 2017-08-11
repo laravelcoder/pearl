@@ -15,23 +15,23 @@
                             </li>
                             @endif
 
-                       {{--      @if(@$design->image[1])
+                            @if(@$design->image[1])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[1]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[1]) !!}" class="img-responsive" alt="single-product" />
                             </li>
-                            @endif --}}
+                            @endif
 
-                      {{--       @if(@$design->image[2])
+                            @if(@$design->image[2])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[2]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[2]) !!}" class="img-responsive" alt="single-product" />
                              </li>
-                             @endif --}}
+                             @endif
 
-                 {{--            @if(@$design->image[3])
+                            @if(@$design->image[3])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[3]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[3]) !!}" class="img-responsive" alt="single-product" />
                              </li>
-                             @endif --}}
+                             @endif
                         </ul>
                     </div>
                 </div>
