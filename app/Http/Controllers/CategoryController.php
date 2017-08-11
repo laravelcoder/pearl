@@ -147,9 +147,11 @@ class CategoryController extends AppBaseController
                 $images = $photoName;
             
             $data['banner'] = $images;
-        } else
-            unset($data['banner']);
-        
+        } 
+        if(!$data['banner']){
+            File::delete(public_path() . '/assets/images/category/banners/' . $category->banner);
+            $data['banner']='';
+        }
         $category = $this->categoryRepository->update($data, $id);
 
         Flash::success('Category updated successfully.');
