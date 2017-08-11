@@ -22,6 +22,17 @@
     "inIndex": true
   },
   {
+    "name": "order_id",
+    "dbType": "string:nullable",
+    "htmlType": "text",
+    "validations": null,
+    "searchable": true,
+    "fillable": true,
+    "primary": false,
+    "inForm": true,
+    "inIndex": false
+  },
+  {
     "name": "name",
     "dbType": "string",
     "htmlType": "text",
