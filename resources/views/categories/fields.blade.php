@@ -12,8 +12,10 @@
 
 <!-- Banner Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::file('banner',['multiple']) !!}
+    {!! Form::label('banner', 'Banner:') !!}<br>
+    <img src="{!! url('assets/images/category/banners/'.$category->banner) !!}" width="100px"/>
+    
+    {!! Form::file('banner') !!}
 </div>
 <div class="clearfix"></div>
 
