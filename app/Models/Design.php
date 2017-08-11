@@ -15,7 +15,7 @@ class Design extends Model
     use SoftDeletes;
 
     public $table = 'designs';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -24,6 +24,7 @@ class Design extends Model
         'published',
         'name',
         'slug',
+        'order_id',
         'image',
         'short_details',
         'details',
@@ -41,6 +42,7 @@ class Design extends Model
         'published' => 'boolean',
         'name' => 'string',
         'slug' => 'string',
+        'order_id' => 'string',
         'image' => 'string',
         'short_details' => 'string',
         'details' => 'string',
@@ -54,10 +56,32 @@ class Design extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
+
     public function getImageAttribute($image) {
         return array_values(unserialize($image));
     }
-    
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($model) {
+            $model->slug = str_slug($model->name);
+
+            $latestSlug =
+                static::whereRaw("slug = '$model->slug' or slug LIKE '$model->slug-%'")
+                    ->latest('id')
+                    ->value('slug');
+            if ($latestSlug) {
+                $pieces = explode('-', $latestSlug);
+
+                $number = intval(end($pieces));
+
+                $model->slug .= '-' . ($number + 1);
+            }
+        });
+    }
+
 }

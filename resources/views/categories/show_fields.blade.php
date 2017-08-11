@@ -19,7 +19,7 @@
 <!-- Banner Field -->
 <div class="form-group">
     {!! Form::label('banner', 'Banner:') !!}
-    <p>{!! $category->banner !!}</p>
+    <p><img src="{!! url('assets/images/category/banners/'.$category->banner) !!}" width="100px"/></p>
 </div>
 
 <!-- Slug Field -->

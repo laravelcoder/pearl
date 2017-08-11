@@ -15,6 +15,7 @@ class CreateDesignsTable extends Migration
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('order_id')->nullable();
             $table->boolean('published')->default(1);
             $table->string('name');
             $table->string('slug')->nullable();

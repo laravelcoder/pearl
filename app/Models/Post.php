@@ -120,11 +120,33 @@ class Post extends Model
     // {
     //     return $query->where('status', 1);
     // }
+
     public function getImageAttribute($image) {
         return array_values(unserialize($image));
     }
     public function getBannerAttribute($banner) {
         return array_values(unserialize($banner));
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($model) {
+            $model->slug = str_slug($model->title);
+
+            $latestSlug =
+                static::whereRaw("slug = '$model->slug' or slug LIKE '$model->slug-%'")
+                    ->latest('id')
+                    ->value('slug');
+            if ($latestSlug) {
+                $pieces = explode('-', $latestSlug);
+
+                $number = intval(end($pieces));
+
+                $model->slug .= '-' . ($number + 1);
+            }
+        });
     }
 
 
