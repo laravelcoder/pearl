@@ -9,25 +9,25 @@
                 <div class="col-md-6">
                     <div class="product-slider flexslider">
                         <ul class="slides">
-                            @if($design->image[0])
+                            @if(@$design->image[0])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[0]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[0]) !!}" class="img-responsive" alt="single-product" />
                             </li>
                             @endif
 
-                       {{--      @if($design->image[1])
+                       {{--      @if(@$design->image[1])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[1]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[1]) !!}" class="img-responsive" alt="single-product" />
                             </li>
                             @endif --}}
 
-                      {{--       @if($design->image[2])
+                      {{--       @if(@$design->image[2])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[2]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[2]) !!}" class="img-responsive" alt="single-product" />
                              </li>
                              @endif --}}
 
-                 {{--            @if($design->image[3])
+                 {{--            @if(@$design->image[3])
                             <li data-thumb="{!! asset('assets/images/designs/thumb/'. $design->image[3]) !!}">
                                 <img src="{!! asset('assets/images/designs/single/'. $design->image[3]) !!}" class="img-responsive" alt="single-product" />
                              </li>
@@ -70,7 +70,7 @@
                 @foreach($other as $ot)
                 <div class="col-md-3 col-sm-6">
                     <div class="product">
-                        <div class="product-wrap"> <img src="{!! url('assets/images/designs/upsell/'.$ot->image[0]) !!}" class="img-responsive" alt="team-01">
+                        <div class="product-wrap"> <img src="{!! url('assets/images/designs/thumb/'.@$ot->image[0]) !!}" class="img-responsive" alt="team-01">
                             <div class="product-caption">
                                 <div class="product-description text-center">
                                     <div class="product-description-wrap">

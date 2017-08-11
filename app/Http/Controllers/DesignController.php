@@ -112,7 +112,7 @@ class DesignController extends AppBaseController {
      */
     public function show($id) {
         $design = $this->designRepository->findWithoutFail($id);
-        $other = Design::where('id', '!=', $id)->get();
+        $other = \App\Models\Design::where('id', '!=', $id)->limit(4)->get();
 
         if (empty($design)) {
             Flash::error('Design not found');
