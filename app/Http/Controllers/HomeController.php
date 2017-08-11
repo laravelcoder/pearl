@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Spatie\SchemaOrg\Schema;
+
 
 
 class HomeController extends AppBaseController
@@ -39,6 +41,11 @@ class HomeController extends AppBaseController
     {
         $designs = $this->designRepository->all();
         $posts = $this->postRepository->all();
+
+//        $localBusiness = Schema::localBusiness()
+//            ->name('orderpearlessence.com')
+//            ->email('contact@orderpearlessence.com')
+//            ->contactPoint(Schema::contactPoint()->areaServed('Worldwide'))->toScript();
 
         return view('homepage', compact('designs','posts'));
     }

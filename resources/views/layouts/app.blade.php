@@ -5,7 +5,8 @@
     <title>Pearl Essence Home Parties</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/css/AdminLTE.min.css">
@@ -16,19 +17,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/css/fileinput.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css">
 
+    <link rel="stylesheet" href="{!! asset('/assets/css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/font-awesome.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/select2.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/AdminLTE.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/_all-skins.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/_all.css') !!}">
+
+    <link rel="stylesheet" href="{!! asset('/assets/css/summernote.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('/assets/css/fileinput.css') !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/bootstrap-toggle.css') !!}">
+
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{!! asset('/assets/css/ionicons.min.css') !!}">
 
     <style type="text/css">
-
-td .media-body {width: auto; }
-.table > tbody > tr > td.media-middle {vertical-align: middle; font-size: 1.5em }
- @media (min-width: 768px) {
-  .media-left img {max-width: 120px; margin-right: 20px; }
-}
-.nav>li>a>img {
-    max-width: 30px;
-}
+        td .media-body {width: auto; }
+        .table > tbody > tr > td.media-middle {vertical-align: middle; font-size: 1.5em }
+        @media (min-width: 768px) {.media-left img {max-width: 120px; margin-right: 20px; } }
+        .nav>li>a>img {max-width: 30px; }
     </style>
 
 
@@ -175,120 +182,97 @@ td .media-body {width: auto; }
 
     <!-- jQuery 3.1.1 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+    <script src="{!! asset('/assets/js/bootstrap.min.js') !!}"></script>
+    <script src="{!! asset('/assets/js/select2.min.js') !!}"></script>
+    <script src="{!! asset('/assets/js/icheck.min.js') !!}"></script>
 
     <!-- AdminLTE App -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.2/js/fileinput.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js"></script>
-<script>
-    if($("#banner").length){
-    $("#banner").fileinput({
-        uploadUrl: '#', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-        overwriteInitial: false,
-         initialPreview: 
-        jQuery.parseJSON( $("#banner").attr('data-src'))
-        ,
-        initialPreviewConfig: 
-         jQuery.parseJSON( $("#banner").attr('data-config'))
-        ,
-        initialPreviewAsData: true, // defaults markup  
-        maxFileSize: 100000,
-        maxFilesNum: 4,
-        //allowedFileTypes: ['image', 'video', 'flash'],
-        slugCallback: function (filename) {
-            return filename.replace('(', '_').replace(']', '_');
-        }
-    });
-    }
-    if($("#image").length){
-    $("#image").fileinput({
-        uploadUrl: '#', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-        
-        overwriteInitial: false,
-        initialPreview: 
-        jQuery.parseJSON( $("#image").attr('data-src'))
-        ,
-        initialPreviewConfig: 
-         jQuery.parseJSON( $("#image").attr('data-config'))
-        ,
-        initialPreviewAsData: true, // defaults markup  
-        maxFileSize: 100000,
-        maxFilesNum: 4,
-        //allowedFileTypes: ['image', 'video', 'flash'],
-        slugCallback: function (filename) {
-            return filename.replace('(', '_').replace(']', '_');
-        }
-    });
-    }
-    /*
-     $(".file").on('fileselect', function(event, n, l) {
-     alert('File Selected. Name: ' + l + ', Num: ' + n);
-     });
-     */
-
-    $(".btn-warning").on('click', function () {
-        var $el = $("#file-4");
-        if ($el.attr('disabled')) {
-            $el.fileinput('enable');
-        } else {
-            $el.fileinput('disable');
-        }
-    });
-    $(".btn-info").on('click', function () {
-        $("#image").fileinput('refresh', {previewClass: 'bg-info'});
-    });
-
-    $('.summernote').summernote({
-      height: 300,                 // set editor height
-      minHeight: null,             // set minimum height of editor
-      maxHeight: null,             // set maximum height of editor
-      focus: true                  // set focus to editable area after initializing summernote
-    });
-
-            $("input#name").keyup(function(){
-                var Text = $(this).val();
-                Text = Text.toLowerCase();
-                Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
-                $("input#slug").val(Text);
+    <script src="{!! asset('/assets/js/app.min.js') !!}"></script>
+    <script src="{!! asset('/assets/js/summernote.js') !!}"></script>
+    <script src="{!! asset('/assets/js/fileinput.js') !!}"></script>
+    <script src="{!! asset('/assets/js/bootstrap2-toggle.min.js') !!}"></script>
+    <script>
+        if($("#banner").length){
+            $("#banner").fileinput({
+                uploadUrl: '#', // you must set a valid URL here else you will get an error
+                allowedFileExtensions: ['jpg', 'png', 'gif'],
+                overwriteInitial: false,
+                 initialPreview:
+                jQuery.parseJSON( $("#banner").attr('data-src'))
+                ,
+                initialPreviewConfig:
+                 jQuery.parseJSON( $("#banner").attr('data-config'))
+                ,
+                initialPreviewAsData: true, // defaults markup
+                maxFileSize: 100000,
+                maxFilesNum: 4,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                slugCallback: function (filename) {
+                    return filename.replace('(', '_').replace(']', '_');
+                }
             });
+        }
+        if($("#image").length){
+            $("#image").fileinput({
+                uploadUrl: '#', // you must set a valid URL here else you will get an error
+                allowedFileExtensions: ['jpg', 'png', 'gif'],
 
-            $("input#title").keyup(function(){
-                var Text = $(this).val();
-                $("input#fb_title").val(Text) + ' on FaceBook.';
-                $('input#gp_title').val(Text) + ' on GooglePlus.';
-                $('input#tw_title').val(Text) + ' on Twitter.';
-                Text = Text.toLowerCase();
-                Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
-                $("input#slug").val(Text);
+                overwriteInitial: false,
+                initialPreview:
+                jQuery.parseJSON( $("#image").attr('data-src'))
+                ,
+                initialPreviewConfig:
+                 jQuery.parseJSON( $("#image").attr('data-config'))
+                ,
+                initialPreviewAsData: true, // defaults markup
+                maxFileSize: 100000,
+                maxFilesNum: 4,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                slugCallback: function (filename) {
+                    return filename.replace('(', '_').replace(']', '_');
+                }
             });
+        }
 
+        $(".btn-warning").on('click', function () {
+            var $el = $("#file-4");
+            if ($el.attr('disabled')) {
+                $el.fileinput('enable');
+            } else {
+                $el.fileinput('disable');
+            }
+        });
+        $(".btn-info").on('click', function () {
+            $("#image").fileinput('refresh', {previewClass: 'bg-info'});
+        });
 
-    // $("input#fb_title").blur(function() {
-    //     $('input#fb_title').val($('input#fb_title').val() + ' on FaceBook.');
-    // });
-    // $("input#gp_title").blur(function() {
-    //     $('input#gp_title').val($('input#gp_title').val() + ' on GooglePlus.');
-    // });
-    // $("input#tw_title").blur(function() {
-    //     $('input#tw_title').val($('input#tw_title').val() + ' on Twitter. ');
-    // });
+        $('.summernote').summernote({
+          height: 300,                 // set editor height
+          minHeight: null,             // set minimum height of editor
+          maxHeight: null,             // set maximum height of editor
+          focus: true                  // set focus to editable area after initializing summernote
+        });
 
-    // $("input#title").keyup(function(){
-    //     var Text = $(this).val();
-    //     Text = Text.toLowerCase();
-    //     Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
-    //     $("input#slug").val(Text);
-    // });
-</script>
+        $("input#name").keyup(function(){
+            var Text = $(this).val();
+            Text = Text.toLowerCase();
+            Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+            $("input#slug").val(Text);
+        });
+
+        $("input#title").keyup(function(){
+            var Text = $(this).val();
+            $("input#fb_title").val(Text) + ' on FaceBook.';
+            $('input#gp_title').val(Text) + ' on GooglePlus.';
+            $('input#tw_title').val(Text) + ' on Twitter.';
+            Text = Text.toLowerCase();
+            Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+            $("input#slug").val(Text);
+        });
+
+    </script>
 
     @yield('scripts')
 
 </body>
 </html>
-

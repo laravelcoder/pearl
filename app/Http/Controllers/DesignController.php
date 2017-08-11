@@ -8,6 +8,7 @@ use App\Repositories\DesignRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use App\Models\Design;
 use File;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -116,10 +117,10 @@ class DesignController extends AppBaseController {
         if (empty($design)) {
             Flash::error('Design not found');
 
-            return redirect(route('designs.index'));
+            return redirect(route('homepage'));
         }
 
-        return view('designs.show')->with('design', $design)->with('other', $other);
+        return view('designs.show', compact('design', 'other'));
     }
 
     /**

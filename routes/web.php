@@ -10,6 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::model('design', 'App\Models\Design');
+// Route::pattern('slug', '[a-z0-9- _]+');
+
+# Error pages should be shown without requiring login
+// Route::get('404', function () {
+//     return View('admin/404');
+// });
+
+// Route::get('500', function () {
+//     return View::make('admin/500');
+// });
 
 
 Route::get('/r', function () {
