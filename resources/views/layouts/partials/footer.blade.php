@@ -52,7 +52,7 @@
     <div class="footer-copyright">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-xs-12">
+          <div class="col-md-4 col-xs-12">
             <ul class="social-media">
               <li><a href="#" class="fa fa-linkedin"></a></li>
               <li><a href="#" class="fa fa-facebook"></a></li>
@@ -61,8 +61,16 @@
               <li><a href="#" class="fa fa-instagram"></a></li>
             </ul>
           </div>
-          <div class="col-md-6 col-xs-12">
-            <div class="copy-right text-right">© 2017 Arcon. All rights reserved</div>
+          <div class="col-md-4 col-xs-12">
+            <div class="copy-right text-right">© 2017 Order Pearl Essence LLC. All rights reserved</div>
+          </div>
+          <div class="col-md-4 col-xs-12">
+           <a class="pull-right" itemprop="url" title="Developed by Affordable Programmer" href="https://www.affordableprogrammer.com">
+           <meta itemprop="name" content="Developed by Affordable Programmer">
+            <span class="lessthan" style="color: #fc290d; font-weight: bold;">&lt;</span>
+            <span class="developedby" style="font-weight: bold;">/AP</span>
+            <span class="greaterthan" style="color: #fc290d; font-weight: bold;">&gt;</span>
+          </a>
           </div>
         </div>
       </div>
