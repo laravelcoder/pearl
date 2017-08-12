@@ -70,6 +70,7 @@ class DesignController extends AppBaseController {
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(660, 440, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/hp/' . $photoName);
 
@@ -112,7 +113,7 @@ class DesignController extends AppBaseController {
      */
     public function show($id) {
         $design = $this->designRepository->findWithoutFail($id);
-        $other = \App\Models\Design::where('id', '!=', $id)->limit(4)->get();
+        $other = Design::where('id', '!=', $id)->limit(4)->get();
 
         if (empty($design)) {
             Flash::error('Design not found');
@@ -197,6 +198,7 @@ class DesignController extends AppBaseController {
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(660, 440, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/hp/' . $photoName);
 
