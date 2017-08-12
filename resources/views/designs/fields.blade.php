@@ -40,6 +40,7 @@
 
 <div class="form-group col-sm-10">
     <input id="image" type="file" name="image[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="1" data-src='{!!@$image!!}' data-config='{!!@$image_config!!}' >
+    <small>For images to look right it needs to be larger then 1024x1024 and the main image should start with 1- </small>
 </div>
 
 

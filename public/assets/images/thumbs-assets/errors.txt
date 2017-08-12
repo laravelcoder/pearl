@@ -1,0 +1,2 @@
+[8/12/2017, 1:09:52 AM] layer "1-double-heart.jpg": Duplicate path: 1-double-heart.jpg
+[8/12/2017, 1:12:20 AM] layer "1-elephant.jpg": Duplicate path: 1-elephant.jpg

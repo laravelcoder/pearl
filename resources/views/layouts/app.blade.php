@@ -5,8 +5,6 @@
     <title>Pearl Essence Home Parties</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/css/AdminLTE.min.css">
@@ -24,7 +22,7 @@
     <link rel="stylesheet" href="{!! asset('/assets/css/_all-skins.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/_all.css') !!}">
 
-    <link rel="stylesheet" href="{!! asset('/assets/css/summernote.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('/assets/css/summernote.css') !!}"/>
     <link rel="stylesheet" href="{!! asset('/assets/css/fileinput.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/bootstrap-toggle.css') !!}">
 
@@ -37,8 +35,6 @@
         @media (min-width: 768px) {.media-left img {max-width: 120px; margin-right: 20px; } }
         .nav>li>a>img {max-width: 30px; }
     </style>
-
-
 
     @yield('css')
 </head>
@@ -176,9 +172,6 @@
         </div>
     </div>
     @endif
-
-
-
 
     <!-- jQuery 3.1.1 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

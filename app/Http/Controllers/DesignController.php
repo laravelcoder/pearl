@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDesignRequest;
@@ -70,18 +69,21 @@ class DesignController extends AppBaseController {
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(660, 440, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/hp/' . $photoName);
 
                 $path = public_path() . '/assets/images/designs/single/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(870, 1170, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/single/' . $photoName);
 
                 $path = public_path() . '/assets/images/designs/upsell/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(800, 900, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/upsell/' . $photoName);
 
@@ -93,8 +95,6 @@ class DesignController extends AppBaseController {
             $data['image'] = serialize($images);
         } else
             unset($data['image']);
-
-
 
         $design = $this->designRepository->create($data);
 
@@ -112,7 +112,7 @@ class DesignController extends AppBaseController {
      */
     public function show($id) {
         $design = $this->designRepository->findWithoutFail($id);
-        $other = \App\Models\Design::where('id', '!=', $id)->limit(4)->get();
+        $other = Design::where('id', '!=', $id)->limit(4)->get();
 
         if (empty($design)) {
             Flash::error('Design not found');
@@ -149,6 +149,7 @@ class DesignController extends AppBaseController {
 
         return view('designs.edit')->with('design', $design)->with('image', $image)->with('image_config', $image_config);
     }
+
 
     public function delete_image($id, $image) {
         $design = $this->designRepository->findWithoutFail($id);
@@ -197,18 +198,21 @@ class DesignController extends AppBaseController {
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(660, 440, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/hp/' . $photoName);
 
                 $path = public_path() . '/assets/images/designs/single/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(870, 1170, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/single/' . $photoName);
 
                 $path = public_path() . '/assets/images/designs/upsell/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
                 Image::make($file)->resize(800, 900, function ($constraint) {
+                    $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save('assets/images/designs/upsell/' . $photoName);
 
