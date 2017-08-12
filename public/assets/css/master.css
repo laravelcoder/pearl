@@ -401,6 +401,10 @@ nav.bootsnav.navbar-sidebar ul.nav {
     background-size: cover;
 }
 
+.parallax-bg-5 {
+    background: url(../images/background/parallax-bg-5.jpg) center 0 no-repeat;
+    background-size: cover;
+}
 
 .parallax-bg-6 {
     background: url(../images/background/parallax-bg-6.jpg) center 0 no-repeat;

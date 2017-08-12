@@ -20,6 +20,7 @@ class DesignsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Forever Love',
                 'slug' => 'forever-love',
@@ -36,6 +37,7 @@ class DesignsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Sea Star',
                 'slug' => 'sea-star',
@@ -52,6 +54,7 @@ class DesignsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Never Forget',
                 'slug' => 'never-forget',
@@ -68,6 +71,7 @@ class DesignsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Celtic Swirl',
                 'slug' => 'celtic-swirl',
@@ -84,22 +88,24 @@ class DesignsTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Monkey Love',
                 'slug' => 'monkey-love',
-                'image' => 'a:3:{i:0;s:13:"SPMONKEY1.JPG";i:1;s:13:"SPMONKEY1.jpg";i:2;s:16:"SPMONKEY1-lg.png";}',
+                'image' => 'a:3:{i:0;s:16:"1-MONKEY1-lg.png";i:1;s:13:"SPMONKEY1.JPG";i:2;s:13:"SPMONKEY1.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Monkey Love is a silver plated pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '35.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-05 10:11:07',
-                'updated_at' => '2017-08-11 07:16:47',
+                'updated_at' => '2017-08-11 21:18:25',
                 'deleted_at' => NULL,
             ),
             5 => 
             array (
                 'id' => 6,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'The Messenger',
                 'slug' => 'the-messenger',
@@ -116,6 +122,7 @@ class DesignsTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Paw Print',
                 'slug' => 'paw-print',
@@ -132,6 +139,7 @@ class DesignsTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Shooting Star',
                 'slug' => 'shooting-star',
@@ -148,6 +156,7 @@ class DesignsTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Best Mom',
                 'slug' => 'best-mom',
@@ -164,6 +173,7 @@ class DesignsTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Life\'s Anchor',
                 'slug' => 'life-s-anchor',
@@ -180,6 +190,7 @@ class DesignsTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Butterfly Kisses',
                 'slug' => 'butterfly-kisses',
@@ -196,22 +207,24 @@ class DesignsTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
+                'order_id' => '42',
                 'published' => 1,
                 'name' => 'MIdnight Ride',
                 'slug' => 'midnight-ride',
-                'image' => 'a:1:{i:0;s:17:"SPCARRIAGE-lg.jpg";}',
+                'image' => 'a:4:{i:0;s:14:"1-carriage.jpg";i:1;s:12:"carriage.jpg";i:2;s:14:"carriage-2.jpg";i:3;s:28:"Pearl-Cage-Carriage-Open.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
-                'short_details' => 'The Midnight Ride #42 is a silver plated pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
+                'short_details' => 'The Midnight Ride is a silver plated pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '35.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-05 22:30:41',
-                'updated_at' => '2017-08-06 23:10:35',
+                'updated_at' => '2017-08-12 01:55:03',
                 'deleted_at' => NULL,
             ),
             12 => 
             array (
                 'id' => 13,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'The Sunflower',
                 'slug' => 'the-sunflower',
@@ -228,6 +241,7 @@ class DesignsTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Dolphin\'s Cove',
                 'slug' => 'dolphin-s-cove',
@@ -244,22 +258,24 @@ class DesignsTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Dole Whip',
                 'slug' => 'dole-whip',
-                'image' => 'a:1:{i:0;s:18:"pineapplepearl.jpg";}',
+                'image' => 'a:2:{i:0;s:13:"pinnapple.jpg";i:1;s:18:"pineapplepearl.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Dole Whip is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:13:27',
-                'updated_at' => '2017-08-06 23:13:27',
+                'updated_at' => '2017-08-12 06:05:06',
                 'deleted_at' => NULL,
             ),
             15 => 
             array (
                 'id' => 16,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Rain Drop',
                 'slug' => 'rain-dro',
@@ -270,12 +286,13 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:14:39',
-                'updated_at' => '2017-08-06 23:14:39',
+                'updated_at' => '2017-08-12 03:05:03',
                 'deleted_at' => NULL,
             ),
             16 => 
             array (
                 'id' => 17,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'The Lantern',
                 'slug' => 'the-lantern',
@@ -286,12 +303,13 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:15:32',
-                'updated_at' => '2017-08-06 23:15:32',
+                'updated_at' => '2017-08-12 04:49:20',
                 'deleted_at' => NULL,
             ),
             17 => 
             array (
                 'id' => 18,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Secret Garden',
                 'slug' => 'secret-garden',
@@ -302,12 +320,13 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:16:22',
-                'updated_at' => '2017-08-06 23:16:22',
+                'updated_at' => '2017-08-12 03:05:54',
                 'deleted_at' => NULL,
             ),
             18 => 
             array (
                 'id' => 19,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'The Lotus',
                 'slug' => 'the-lotus',
@@ -318,28 +337,30 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:26:11',
-                'updated_at' => '2017-08-06 23:26:11',
+                'updated_at' => '2017-08-12 03:09:06',
                 'deleted_at' => NULL,
             ),
             19 => 
             array (
                 'id' => 20,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Queen of Hearts',
                 'slug' => 'queen-of-hearts',
-                'image' => 'a:1:{i:0;s:16:"double heart.jpg";}',
+                'image' => 'a:1:{i:0;s:16:"double-heart.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Queen of Hearts is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:27:15',
-                'updated_at' => '2017-08-06 23:27:15',
+                'updated_at' => '2017-08-12 03:52:38',
                 'deleted_at' => NULL,
             ),
             20 => 
             array (
                 'id' => 21,
+                'order_id' => '07',
                 'published' => 1,
                 'name' => 'Never Forget',
                 'slug' => 'never-forget',
@@ -350,60 +371,64 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:28:22',
-                'updated_at' => '2017-08-06 23:47:21',
+                'updated_at' => '2017-08-12 02:57:22',
                 'deleted_at' => NULL,
             ),
             21 => 
             array (
                 'id' => 22,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Infinity Wings',
                 'slug' => 'infinity-wings',
                 'image' => 'a:1:{i:0;s:11:"sswings.png";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Infinity Wings is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
-                'details' => '',
+                'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:33:41',
-                'updated_at' => '2017-08-07 18:02:02',
+                'updated_at' => '2017-08-12 03:12:52',
                 'deleted_at' => NULL,
             ),
             22 => 
             array (
                 'id' => 23,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Olympic Love',
                 'slug' => 'olympic-love',
-                'image' => 'a:1:{i:0;s:16:"circle heart.jpg";}',
+                'image' => 'a:1:{i:0;s:16:"circle-heart.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Olympic Love is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:34:30',
-                'updated_at' => '2017-08-06 23:34:30',
+                'updated_at' => '2017-08-12 03:54:07',
                 'deleted_at' => NULL,
             ),
             23 => 
             array (
                 'id' => 24,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Honu',
                 'slug' => 'honu',
-                'image' => 'a:1:{i:0;s:10:"turtle.jpg";}',
+                'image' => 'a:3:{i:0;s:10:"turtle.jpg";i:1;s:12:"1-turtle.jpg";i:2;s:10:"turtle.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Honu is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:36:37',
-                'updated_at' => '2017-08-06 23:46:53',
+                'updated_at' => '2017-08-12 04:00:55',
                 'deleted_at' => NULL,
             ),
             24 => 
             array (
                 'id' => 25,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Luck of the Irish',
                 'slug' => 'luck-of-the-irish',
@@ -414,44 +439,47 @@ class DesignsTableSeeder extends Seeder
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:37:30',
-                'updated_at' => '2017-08-06 23:37:30',
+                'updated_at' => '2017-08-12 03:10:02',
                 'deleted_at' => NULL,
             ),
             25 => 
             array (
                 'id' => 26,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'French Twist',
                 'slug' => 'french-twist',
-                'image' => 'a:1:{i:0;s:9:"twist.jpg";}',
+                'image' => 'a:3:{i:0;s:11:"1-twist.jpg";i:1;s:9:"twist.jpg";i:2;s:9:"twist.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The French Twist is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:51:35',
-                'updated_at' => '2017-08-06 23:51:35',
+                'updated_at' => '2017-08-12 02:06:01',
                 'deleted_at' => NULL,
             ),
             26 => 
             array (
                 'id' => 27,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Minnie Mouse',
                 'slug' => 'minnie-mouse',
-                'image' => 'a:1:{i:0;s:12:"SSMINNIE.png";}',
+                'image' => 'a:2:{i:0;s:12:"1-minnie.jpg";i:1;s:10:"minnie.jpg";}',
                 'button_code' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UCU5V4HZZDGQ',
                 'short_details' => 'The Minnie Mouse is a sterling silver pendant.  This setting includes the pendant, a sterling silver necklace and 1 oyster opening.',
                 'details' => NULL,
                 'price' => '45.00',
                 'availability' => 'Available',
                 'created_at' => '2017-08-06 23:53:45',
-                'updated_at' => '2017-08-06 23:53:45',
+                'updated_at' => '2017-08-12 03:03:28',
                 'deleted_at' => NULL,
             ),
             27 => 
             array (
                 'id' => 28,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'Midnight Ride',
                 'slug' => 'midnight-ride',
@@ -468,6 +496,7 @@ class DesignsTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
+                'order_id' => NULL,
                 'published' => 1,
                 'name' => 'All My Love',
                 'slug' => 'all-my-love',

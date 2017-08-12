@@ -1,4 +1,4 @@
-  <section class="grey-bg parallax-bg-5" data-stellar-background-ratio="0.2">
+  <section class="grey-bg parallax-bg-5 fixed-bg" data-stellar-background-ratio="0.2" style="background-position: 50% 23.8px;">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 section-heading">
