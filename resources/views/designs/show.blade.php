@@ -75,7 +75,7 @@
                                 <div class="product-description text-center">
                                     <div class="product-description-wrap">
                                         <div class="product-title">
-                                        <a href="{!! url('designs', [$ot->slug]) !!}"><i class="fa fa-link"></i></a>
+                                        <a href="{!! url('designs', [$ot->slug]) !!}"><i class="fa fa-2x fa-link"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="product-detail">
                             <h4>{{$ot->name}}</h4>
-                            <p>{{$ot->price}} </p>
+                            <p>${{$ot->price}} </p>
                         </div>
                     </div>
                 </div>

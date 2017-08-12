@@ -40,7 +40,7 @@
 <div class="wrapper">
 
   <!--=== Header Start ===-->
-  <nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full">
+  <nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full" id="topnavbar">
     <!--=== Start Top Search ===-->
     <div class="fullscreen-search-overlay" id="search-overlay"> <a href="#" class="fullscreen-close" id="fullscreen-close-button"><i class="mdi mdi-close"></i></a>
       <div id="fullscreen-search-wrapper">

@@ -25,9 +25,9 @@
                     <a href="{!! route('design', [$design->id]) !!}" class="links">More Details</a> </div>
                   <!--=== /.project-info ===-->
                   <ul class="portfolio-details">
-                    <li><a class="alpha-lightbox" href="{!! asset('assets/images/designs/'. @$design->image[0]) !!}"><i class="fa fa-search"></i></a></li>
+                    <li><a class="alpha-lightbox" href="{!! asset('assets/images/designs/'. @$design->image[0]) !!}"><i class="fa fa-2x fa-search"></i></a></li>
 
-                    <li><a href="{!! route('design', [$design->id]) !!}"><i class="fa fa-link"></i></a></li>
+                    <li><a href="{!! route('design', [$design->id]) !!}"><i class="fa fa-2x fa-link"></i></a></li>
                   </ul>
                 </div>
               </div>

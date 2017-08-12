@@ -1,7 +1,7 @@
-  <section class="first-ico-box">
+  <section class="first-ico-box parallax-bg-9 " data-stellar-background-ratio="0.2">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 section-heading">
+        <div class="col-sm-8 section-heading white-color fade-bg">
           <h2 class="text-uppercase wow fadeTop" data-wow-delay="0.1s">Who We Are</h2>
           <h4 class="text-uppercase source-font wow fadeTop" data-wow-delay="0.2s">- Pearls at your fingertips -</h4>
           <div class="mt-30 wow fadeTop" data-wow-delay="0.3s">

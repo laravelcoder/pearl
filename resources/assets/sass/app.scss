@@ -7,3 +7,7 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+ .fade-bg {background-repeat: repeat; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border: none; background: url('assets/images/fade.png'); }
+
+
