@@ -17,3 +17,9 @@ resources/views/layouts/partials/adams.sublime-workspace
 *.php-bak.php
 *.rar
 *.zip
+
+public/.htaccess
+/public/assets/designs/
+/public/assets/designs.rar
+/public/Documentation/
+/public/.htaccess

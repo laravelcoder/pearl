@@ -118,6 +118,9 @@ body {
 .paris-font{font-family: 'Parisienne', cursive;}
 .kaushan-font{font-family: 'Kaushan Script', cursive;}
 
+ .fade-bg {background-repeat: repeat; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border: none;
+    background: url('../images/fade.png'); }
+
 h1, h2, h3, h4, h5, h6 {
     color: #212121;
     margin: 10px 0;
@@ -398,6 +401,10 @@ nav.bootsnav.navbar-sidebar ul.nav {
     background-size: cover;
 }
 
+.parallax-bg-5 {
+    background: url(../images/background/parallax-bg-5.jpg) center 0 no-repeat;
+    background-size: cover;
+}
 
 .parallax-bg-6 {
     background: url(../images/background/parallax-bg-6.jpg) center 0 no-repeat;
@@ -5596,4 +5603,3 @@ form.register {
 .career-category {
 	padding-top:14px;
 }
-

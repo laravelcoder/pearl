@@ -60,6 +60,11 @@ class HomeController extends AppBaseController
         return view('about');
     }
 
+    public function parties()
+    {
+        return view('parties');
+    }
+
     public function contact()
     {
         return view('contact');

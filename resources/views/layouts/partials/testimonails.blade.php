@@ -1,9 +1,9 @@
-  <section class="grey-bg">
+  <section class="grey-bg parallax-bg-5 fixed-bg" data-stellar-background-ratio="0.2" style="background-position: 50% 23.8px;">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 section-heading">
           <h2 class="text-uppercase wow fadeTop" data-wow-delay="0.1s">Testimonials</h2>
-          <h4 class="text-uppercase source-font wow fadeTop" data-wow-delay="0.2s">- Statisfy Clients -</h4>
+          <h4 class="text-uppercase source-font wow fadeTop" data-wow-delay="0.2s">- Statisfied Clients -</h4>
         </div>
       </div>
       <div class="row">
