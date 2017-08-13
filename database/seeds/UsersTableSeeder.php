@@ -12,12 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('users')->delete();
-        
+
         \DB::table('users')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'name' => 'phillipmadsen',
@@ -35,9 +35,18 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'created_at' => '2017-06-12 23:17:45',
                 'updated_at' => '2017-06-12 23:17:45',
+            ),
+            array (
+                'id' => 3,
+                'name' => 'rob',
+                'email' => 'rohitpmodi@gmail.com',
+                'password' => bcrypt('@dev2017'),
+                'remember_token' => NULL,
+                'created_at' => '2017-06-12 23:17:45',
+                'updated_at' => '2017-06-12 23:17:45',
             )
         ));
-        
-        
+
+
     }
 }
