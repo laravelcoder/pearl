@@ -10,6 +10,10 @@
 	@include('layouts.partials.who')
 	<!--=== Who We Are End ===-->
 
+	<!--=== Testimonails Start ===-->
+	@include('layouts.partials.testimonails')
+	<!--=== Testimonails End ===-->
+	{{-- <div style="clear:both"></div> --}}
 	<!--=== Portfolio Start ===-->
 	@include('layouts.partials.portfolio')
 	<!--=== Portfolio End ===-->
@@ -22,9 +26,7 @@
 	{{-- @include('layouts.partials.team') --}}
 	<!--=== Our Team End ===-->
 
-	<!--=== Testimonails Start ===-->
-	@include('layouts.partials.testimonails')
-	<!--=== Testimonails End ===-->
+
 
 	<!--=== Blogs Start ===-->
 	@if (count($posts) > 1)
