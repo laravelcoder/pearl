@@ -13,14 +13,14 @@
 <!-- Banner Field -->
 <div class="form-group col-sm-6" id="bannerdragoverdrop">
     {!! Form::label('banner', 'Banner:') !!}
-    @if($category->banner)
+    @if(@$category->banner)
     <div id="banner_privew">
         <a class="btn btn-xs btn-danger"  onclick="$('#banner').val('');$('#banner_privew').remove()">X</a>
         <img src="{!! url('assets/images/category/banners/'.$category->banner) !!}" width="100px"/>
         
     </div>
     @endif
-    <input type="hidden" name="banner" id="banner" value="{{$category->banner}}">
+    <input type="hidden" name="banner" id="banner" value="{{@$category->banner}}">
     {!! Form::file('banner') !!}
 </div>
 <div class="clearfix"></div>
