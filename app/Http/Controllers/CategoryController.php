@@ -47,8 +47,8 @@ class CategoryController extends AppBaseController
      */
     public function create()
     {
-
-        return view('categories.create');
+        $category = $this->categoryRepository;
+        return view('categories.create')->with('category', $category);
     }
 
     /**
