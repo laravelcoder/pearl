@@ -22,7 +22,7 @@
 								<div class="portfolio-wrap">
 									<div class="portfolio-description">
 										<h3 class="portfolio-title">{!! $design->name !!}</h3>
-										<a href="{!! route('design', [$design->id]) !!}" class="links">More Details</a>
+										<a href="{!! route('design', [$design->slug]) !!}" class="links">More Details</a>
 									</div>
 									<!--=== /.project-info ===-->
 									<ul class="portfolio-details">

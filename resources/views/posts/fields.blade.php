@@ -39,9 +39,9 @@
 </div>
 
 <!-- Banner Field -->
-<div class="form-group col-sm-10">
+<div class="form-group col-sm-10" id="ibannerdragoverdrop">
     {!! Form::label('banner', 'Banner:') !!}
-    {!! Form::file('banner[]', ['id' => 'banner', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple','data-src'=>$banner,'data-config'=>$banner_config]) !!}
+    {!! Form::file('banner[]', ['id' => 'banner', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple','data-src'=>@$banner,'data-config'=>@$banner_config]) !!}
 </div>
 
 <!-- Content Field -->
@@ -87,9 +87,9 @@
 </div>
 
 <!-- Image Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" id="imagedragoverdrop">
     {!! Form::label('image', 'Image:') !!}
-    {!! Form::file('image[]', ['id' => 'image', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple','data-src'=>$image,'data-config'=>$image_config]) !!}
+    {!! Form::file('image[]', ['id' => 'image', 'class' => 'form-control file', 'data-overwrite-initial' => 'false','multiple','data-src'=>@$image,'data-config'=>@$image_config, 'data-upload'=>url('admin/designs/uploadimage?_token=' . csrf_token())]) !!}
 </div>
 
 <!-- Slug Field -->

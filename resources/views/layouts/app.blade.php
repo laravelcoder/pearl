@@ -191,13 +191,13 @@
                 allowedFileExtensions: ['jpg', 'png', 'gif'],
                 overwriteInitial: false,
                  initialPreview:
-                jQuery.parseJSON( $("#banner").attr('data-src'))
+                ($("#banner").attr('data-src'))?jQuery.parseJSON( $("#banner").attr('data-src')):''
                 ,
                 initialPreviewConfig:
-                 jQuery.parseJSON( $("#banner").attr('data-config'))
+                 ($("#banner").attr('data-config'))?jQuery.parseJSON( $("#banner").attr('data-config')):''
                 ,
                 initialPreviewAsData: true, // defaults markup
-                maxFileSize: 100000,
+                maxFileSize: 500000,
                 maxFilesNum: 4,
                 //allowedFileTypes: ['image', 'video', 'flash'],
                 slugCallback: function (filename) {
@@ -207,18 +207,18 @@
         }
         if($("#image").length){
             $("#image").fileinput({
-                uploadUrl: '#', // you must set a valid URL here else you will get an error
+                uploadUrl: $("#image").attr('data-upload'), // you must set a valid URL here else you will get an error
                 allowedFileExtensions: ['jpg', 'png', 'gif'],
 
                 overwriteInitial: false,
                 initialPreview:
-                jQuery.parseJSON( $("#image").attr('data-src'))
+                ($("#image").attr('data-src'))?jQuery.parseJSON( $("#image").attr('data-src')):''
                 ,
                 initialPreviewConfig:
-                 jQuery.parseJSON( $("#image").attr('data-config'))
+                 ($("#image").attr('data-config'))?jQuery.parseJSON( $("#image").attr('data-config')):''
                 ,
                 initialPreviewAsData: true, // defaults markup
-                maxFileSize: 100000,
+                maxFileSize: 500000,
                 maxFilesNum: 4,
                 //allowedFileTypes: ['image', 'video', 'flash'],
                 slugCallback: function (filename) {
@@ -262,7 +262,35 @@
             Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
             $("input#slug").val(Text);
         });
-
+        $("#imagedragoverdrop").on("dragover drop", function(e) {
+            e.preventDefault();  // allow dropping and don't navigate to file on drop
+            }).on("drop", function(e) {
+                var a=$(this);
+                var $files=e.originalEvent.dataTransfer.files;
+                setTimeout(
+                function() 
+                {
+                   a.find("input[type='file']")
+                    .prop("files", $files);
+                }, 1000);
+                 
+        });
+        function toArray(fileList) {
+            return Array.prototype.slice.call(fileList);
+        }
+        $("#bannerdragoverdrop").on("dragover drop", function(e) {
+           
+            e.preventDefault();  // allow dropping and don't navigate to file on drop
+            }).on("drop", function(e) {
+                 var a=$(this);
+                var $files=e.originalEvent.dataTransfer.files;
+                setTimeout(
+                function() 
+                {
+                   a.find("input[type='file']")
+                    .prop("files", $files);
+                }, 1000);
+        });
     </script>
 
     @yield('scripts')

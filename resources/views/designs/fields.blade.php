@@ -38,13 +38,21 @@
     </div>
 
 
-<div class="form-group col-sm-10">
-    <input id="image" type="file" name="image[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="1" data-src='{!!@$image!!}' data-config='{!!@$image_config!!}' >
+<div class="form-group col-sm-10" id="imagedragoverdrop">
+    <input id="image" type="file" name="image[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="1" data-src='{!!@$image!!}' data-config='{!!@$image_config!!}' data-upload="{!! url('admin/designs/uploadimage?_token=' . csrf_token()) !!}" >
     <small>For images to look right it needs to be larger then 1024x1024 and the main image should start with 1- </small>
 </div>
-
-
-
+<div class="form-group col-sm-12">
+    {!! Form::label('img', 'Sort Order') !!} ' 0<sup>th</sup> is the main image'<br>
+@if(@$design->image)
+@foreach(@$design->image as $key=>$img)
+<div class="form-group col-sm-2">
+    <img src="{!! url('assets/images/designs/thumb/'.$img) !!}" width="100px" style="padding: 10px">        
+        {!! Form::text("sort_id[$img]", $key, ['class' => 'form-control input-sm']) !!}
+    </div>
+@endforeach
+@endif
+</div>
 <!-- Short Details Field -->
 <div class="form-group col-sm-8">
     {!! Form::label('short_details', 'Short Details:') !!}
