@@ -110,15 +110,16 @@ class DesignController extends AppBaseController {
      *
      * @return Response
      */
-    public function show($id) {
-        $design = $this->designRepository->findWithoutFail($id);
-        $other = Design::where('id', '!=', $id)->limit(4)->get();
+    public function show($slug) {
+        $design = $this->designRepository->findWhere(array('slug'=>$slug))->first();
+        
 
         if (empty($design)) {
             Flash::error('Design not found');
 
             return redirect(route('homepage'));
         }
+        $other = Design::where('id', '!=', $design->id)->limit(4)->get();
 
         return view('designs.show', compact('design', 'other'));
     }
@@ -185,6 +186,9 @@ class DesignController extends AppBaseController {
 
         $data = $request->all();
         $images = array();
+        $oldimages=$design->image;
+        asort($data['sort_id']);
+        $oldimages=array_keys($data['sort_id']);
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
                 $photoName = $file->getClientOriginalName();
@@ -220,12 +224,14 @@ class DesignController extends AppBaseController {
                 $file->move(public_path('assets/images/designs'), $photoName);
                 $images[] = $photoName;
             }
-            $images = array_merge($images, $design->image);
+            $images = array_merge($oldimages,$images);
             $data['image'] = serialize($images);
-        } else
-            unset($data['image']);
+        } else{
+            $images = $oldimages;
+            $data['image'] = serialize($images);            
+        }
 
-
+        
         $design = $this->designRepository->update($data, $id);
 
         Flash::success('Design updated successfully.');
@@ -263,5 +269,7 @@ class DesignController extends AppBaseController {
 
         return redirect(route('designs.index'));
     }
-
+    public function uploadimage() {
+        return "{}";
+    }
 }
