@@ -83,14 +83,15 @@
                 <div class="col-md-4 col-xs-12">
                     <div class="copy-right text-right">© 2017 Order Pearl Essence LLC. All rights reserved</div>
                 </div>
-                {{-- <div class="col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12">
                     <a class="pull-right" itemprop="url" title="Developed by Affordable Programmer" href="https://www.affordableprogrammer.com">
                         <meta itemprop="name" content="Developed by Affordable Programmer">
                         <span class="lessthan" style="color: #fc290d; font-weight: bold;">&lt;</span>
-                        <span class="developedby" style="font-weight: bold;">/AP</span>
+                        <span class="slash" style="font-weight: bold; color: #30f03d;">&#47;</span>
+                        <span class="developedby" style="font-weight: bold;color: #52bafa;">AP</span>
                         <span class="greaterthan" style="color: #fc290d; font-weight: bold;">&gt;</span>
                     </a>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>

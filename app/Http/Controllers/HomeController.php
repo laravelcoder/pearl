@@ -70,6 +70,11 @@ class HomeController extends AppBaseController
         return view('contact');
     }
 
+    public function oppertunity()
+    {
+        return view('oppertunity');
+    }
+
     public function terms()
     {
         return view('terms');

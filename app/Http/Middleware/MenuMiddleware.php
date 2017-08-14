@@ -22,6 +22,7 @@
                 $menu->add('Home', ['route' => 'homepage', 'class' => 'navbar-home', 'id' => 'home'])->link->secure();
                 $menu->add('About', ['url' => 'about', 'class' => 'navbar-about'])->link->secure();
                 $menu->add('Parties', ['url' => 'parties', 'class' => 'navbar-parties'])->link->secure();
+                $menu->add('Opportunity', ['url' => 'opportunity', 'class' => 'navbar-opportunity'])->link->secure();
                 $menu->add('Contact', 'contact')->link->secure();
             });
 
