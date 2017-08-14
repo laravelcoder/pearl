@@ -11,7 +11,7 @@
 </div>
 
 <!-- Banner Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" id="bannerdragoverdrop">
     {!! Form::label('banner', 'Banner:') !!}
     @if($category->banner)
     <div id="banner_privew">
