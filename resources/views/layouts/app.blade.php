@@ -142,7 +142,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    Order PearlEssence
                 </a>
             </div>
 
