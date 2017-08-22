@@ -187,7 +187,9 @@ class DesignController extends AppBaseController {
         $data = $request->all();
         $images = array();
         $oldimages=$design->image;
-        asort($data['sort_id']);
+		if(isset($data['sort_id']) && !empty($data['sort_id'])){
+        	asort($data['sort_id']);
+		}
         $oldimages=array_keys($data['sort_id']);
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
