@@ -112,7 +112,9 @@ class DesignController extends AppBaseController {
      */
     public function show($slug) {
         $design = $this->designRepository->findWhere(array('slug'=>$slug))->first();
-        
+        if (is_numeric($slug)) {
+            $design = $this->designRepository->findWhere(array('id'=>$slug))->first();
+        }
 
         if (empty($design)) {
             Flash::error('Design not found');
