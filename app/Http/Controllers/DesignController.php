@@ -68,8 +68,8 @@ class DesignController extends AppBaseController {
 
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
-                Image::make($file)->resize(660, 440, function ($constraint) {
-                    $constraint->aspectRatio();
+                Image::make($file)->fit(660, 440, function ($constraint) {
+
                     $constraint->upsize();
                 })->save('assets/images/designs/hp/' . $photoName);
 
@@ -206,10 +206,7 @@ class DesignController extends AppBaseController {
 
                 $path = public_path() . '/assets/images/designs/hp/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
-                Image::make($file)->resize(660, 440, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })->save('assets/images/designs/hp/' . $photoName);
+                Image::make($file)->resize(660, 440 )->save('assets/images/designs/hp/' . $photoName);
 
                 $path = public_path() . '/assets/images/designs/single/';
                 File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
