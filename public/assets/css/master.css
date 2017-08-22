@@ -5603,3 +5603,6 @@ form.register {
 .career-category {
 	padding-top:14px;
 }
+#portfolio .portfolio-item:nth-child(3n+1) {
+  clear: both;
+}

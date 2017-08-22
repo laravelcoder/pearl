@@ -68,7 +68,7 @@
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                @if(Gravatar::exists(Auth::user()->email)):
+                                @if(Gravatar::exists(Auth::user()->email))
                                     <img src="{{ Gravatar::src(Auth::user()->email, 80) }}" class="img-circle" alt="User Image"/>
                                 @else
                                     <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
@@ -79,7 +79,7 @@
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    @if(Gravatar::exists(Auth::user()->email)):
+                                    @if(Gravatar::exists(Auth::user()->email))
                                         <img src="{{ Gravatar::src(Auth::user()->email) }}" class="img-circle" alt="User Image"/>
                                     @else
                                         <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
@@ -94,7 +94,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        {{-- <a href="#" class="btn btn-default btn-flat">Profile</a> --}}
                                     </div>
                                     <div class="pull-right">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
@@ -142,7 +142,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    Order PearlEssence
                 </a>
             </div>
 
@@ -268,24 +268,24 @@
                 var a=$(this);
                 var $files=e.originalEvent.dataTransfer.files;
                 setTimeout(
-                function() 
+                function()
                 {
                    a.find("input[type='file']")
                     .prop("files", $files);
                 }, 1000);
-                 
+
         });
         function toArray(fileList) {
             return Array.prototype.slice.call(fileList);
         }
         $("#bannerdragoverdrop").on("dragover drop", function(e) {
-           
+
             e.preventDefault();  // allow dropping and don't navigate to file on drop
             }).on("drop", function(e) {
                  var a=$(this);
                 var $files=e.originalEvent.dataTransfer.files;
                 setTimeout(
-                function() 
+                function()
                 {
                    a.find("input[type='file']")
                     .prop("files", $files);

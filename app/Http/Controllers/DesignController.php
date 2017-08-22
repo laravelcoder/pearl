@@ -112,6 +112,7 @@ class DesignController extends AppBaseController {
      */
     public function show($slug) {
         $design = $this->designRepository->findWhere(array('slug'=>$slug))->first();
+
         if (is_numeric($slug)) {
             $design = $this->designRepository->findWhere(array('id'=>$slug))->first();
         }
@@ -232,10 +233,10 @@ class DesignController extends AppBaseController {
             $data['image'] = serialize($images);
         } else{
             $images = $oldimages;
-            $data['image'] = serialize($images);            
+            $data['image'] = serialize($images);
         }
 
-        
+
         $design = $this->designRepository->update($data, $id);
 
         Flash::success('Design updated successfully.');

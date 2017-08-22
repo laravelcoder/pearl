@@ -6,7 +6,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-            @if(Gravatar::exists(Auth::user()->email)):
+            @if(Gravatar::exists(Auth::user()->email))
                 <img src="{{ Gravatar::src(Auth::user()->email) }}" class="img-circle" alt="User Image"/>
             @else
                 <img src="https://placehold.it/150x150" class="img-circle" alt="User Image"/>
