@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDesignRequest;
@@ -111,10 +112,10 @@ class DesignController extends AppBaseController {
      * @return Response
      */
     public function show($slug) {
-        $design = $this->designRepository->findWhere(array('slug'=>$slug))->first();
+        $design = $this->designRepository->findWhere(array('slug' => $slug))->first();
 
         if (is_numeric($slug)) {
-            $design = $this->designRepository->findWhere(array('id'=>$slug))->first();
+            $design = $this->designRepository->findWhere(array('id' => $slug))->first();
         }
 
         if (empty($design)) {
@@ -154,7 +155,6 @@ class DesignController extends AppBaseController {
         return view('designs.edit')->with('design', $design)->with('image', $image)->with('image_config', $image_config);
     }
 
-
     public function delete_image($id, $image) {
         $design = $this->designRepository->findWithoutFail($id);
         $old_image = $design->image;
@@ -189,11 +189,17 @@ class DesignController extends AppBaseController {
 
         $data = $request->all();
         $images = array();
-        $oldimages=$design->image;
-		if(isset($data['sort_id']) && !empty($data['sort_id'])){
-        	asort($data['sort_id']);
-			$oldimages=array_keys($data['sort_id']);
-		}
+        $oldimages = $design->image;
+        if (isset($data['sort_id']) && !empty($data['sort_id'])) {
+            asort($data['sort_id']);
+            $sortImages = array_keys($data['sort_id']);
+            foreach($sortImages as $key=>$oi):
+                if(!in_array($oi, $oldimages)){
+                    unset($sortImages[$key]);
+                }
+            endforeach;
+            $oldimages=$sortImages;
+        }
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
                 $photoName = $file->getClientOriginalName();
@@ -226,9 +232,9 @@ class DesignController extends AppBaseController {
                 $file->move(public_path('assets/images/designs'), $photoName);
                 $images[] = $photoName;
             }
-            $images = array_merge($oldimages,$images);
+            $images = array_merge($oldimages, $images);
             $data['image'] = serialize($images);
-        } else{
+        } else {
             $images = $oldimages;
             $data['image'] = serialize($images);
         }
@@ -271,7 +277,9 @@ class DesignController extends AppBaseController {
 
         return redirect(route('designs.index'));
     }
+
     public function uploadimage() {
         return "{}";
     }
+
 }
